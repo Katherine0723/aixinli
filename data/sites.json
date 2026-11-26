@@ -1,0 +1,88 @@
+{
+  "about": "Cohort sites for the research map, each with its source. Checked 2026-11-22. ARIC, CHS, MESA, HUNT and UK Biobank come from the site verifiers, with their corrections applied (see note fields). SCCS was read by the map builder from its design paper; no verifier result came with it, so it has one source only. The design review of 2026-11-22 checked that source, dropped UK Biobank's coordinating centre (it recruited no one), recaptioned Levanger and relabelled the Altrincham pilot centre (see note fields).",
+  "cohorts": [
+    {
+      "key": "aric",
+      "name": "ARIC",
+      "full_name": "Atherosclerosis Risk in Communities",
+      "sites": [
+        { "label": "Forsyth County, North Carolina", "kind": "field_center", "lat": 36.13, "lon": -80.26, "source_url": "https://aric.cscc.unc.edu/aric9/about/project_overview", "source_quote": "Forsyth County, North Carolina" },
+        { "label": "Jackson, Mississippi", "kind": "field_center", "lat": 32.32, "lon": -90.21, "source_url": "https://aric.cscc.unc.edu/aric9/about/project_overview", "source_quote": "Jackson, Mississippi" },
+        { "label": "Northwest suburbs of Minneapolis, Minnesota", "kind": "field_center", "lat": 45.04, "lon": -93.37, "source_url": "https://aric.cscc.unc.edu/aric9/about/project_overview", "source_quote": "eight northwestern suburbs of Minneapolis, Minnesota", "note": "Verifier correction: moved from 44.96, -93.27 (Minneapolis city) to the mean of the seven suburbs named in ARIC Manual 1, which sits in Crystal. The suburb count is left out because ARIC sources say eight and the manuals name seven." },
+        { "label": "Washington County, Maryland", "kind": "field_center", "lat": 39.6, "lon": -77.81, "source_url": "https://aric.cscc.unc.edu/aric9/about/project_overview", "source_quote": "Washington County, Maryland" }
+      ]
+    },
+    {
+      "key": "chs",
+      "name": "CHS",
+      "full_name": "Cardiovascular Health Study",
+      "sites": [
+        { "label": "Sacramento, California", "kind": "field_center", "lat": 38.57, "lon": -121.47, "source_url": "https://chs-nhlbi.org/CHSOverview", "source_quote": "Sacramento County, Sacramento, CA - University of California, Davis" },
+        { "label": "Hagerstown, Maryland", "kind": "field_center", "lat": 39.64, "lon": -77.72, "source_url": "https://chs-nhlbi.org/CHSOverview", "source_quote": "Washington County, Hagerstown, MD - Johns Hopkins University" },
+        { "label": "Winston-Salem, North Carolina", "kind": "field_center", "lat": 36.1, "lon": -80.26, "source_url": "https://chs-nhlbi.org/CHSOverview", "source_quote": "Forsyth County, Winston-Salem, NC - Wake Forest University School of Medicine" },
+        { "label": "Pittsburgh, Pennsylvania", "kind": "field_center", "lat": 40.44, "lon": -79.98, "source_url": "https://chs-nhlbi.org/CHSOverview", "source_quote": "Pittsburgh, PA - University of Pittsburgh" }
+      ]
+    },
+    {
+      "key": "mesa",
+      "name": "MESA",
+      "full_name": "Multi-Ethnic Study of Atherosclerosis",
+      "sites": [
+        { "label": "Baltimore City and Baltimore County, Maryland", "map_label": "Baltimore", "kind": "field_center", "lat": 39.29, "lon": -76.61, "source_url": "https://mesa-nhlbi.org/about/overview", "source_quote": "Baltimore City and Baltimore County, Maryland" },
+        { "label": "Chicago, Illinois", "kind": "field_center", "lat": 41.88, "lon": -87.63, "source_url": "https://mesa-nhlbi.org/about/overview", "source_quote": "Chicago, Illinois" },
+        { "label": "Forsyth County, North Carolina", "kind": "field_center", "lat": 36.13, "lon": -80.26, "source_url": "https://mesa-nhlbi.org/about/overview", "source_quote": "Forsyth County, North Carolina" },
+        { "label": "Los Angeles County, California", "kind": "field_center", "lat": 34.2, "lon": -118.26, "source_url": "https://mesa-nhlbi.org/about/overview", "source_quote": "Los Angeles County, California" },
+        { "label": "New York, New York", "kind": "field_center", "lat": 40.71, "lon": -74.01, "source_url": "https://mesa-nhlbi.org/about/overview", "source_quote": "New York, New York" },
+        { "label": "St. Paul, Minnesota", "kind": "field_center", "lat": 44.95, "lon": -93.09, "source_url": "https://mesa-nhlbi.org/about/overview", "source_quote": "St. Paul, Minnesota" }
+      ]
+    },
+    {
+      "key": "sccs",
+      "name": "SCCS",
+      "full_name": "Southern Community Cohort Study",
+      "states": ["Alabama", "Arkansas", "Florida", "Georgia", "Kentucky", "Louisiana", "Mississippi", "North Carolina", "South Carolina", "Tennessee", "Virginia", "West Virginia"],
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2940058/",
+      "source_quote": "Recruitment of participants into the SCCS across a 12-state area of the Southeast (Alabama, Arkansas, Florida, Georgia, Kentucky, Louisiana, Mississippi, North Carolina, South Carolina, Tennessee, Virginia, and West Virginia) (Figure 1) began in March 2002 and was completed in September 2009.",
+      "note": "Read by the map builder on 2026-11-22 from Signorello et al., J Health Care Poor Underserved 2010;21(1 Suppl):26-37 (PMID 20173283). Checked in the 2026-11-22 design review: the 12-state sentence and the March 2002 to September 2009 dates match PMC2940058 word for word, and PMID 20173283 is this paper. Its Box 1 names the 71 community health center enrollment sites by city and state; they are not on the map."
+    },
+    {
+      "key": "hunt",
+      "name": "HUNT",
+      "full_name": "Trøndelag Health Study",
+      "sites": [
+        { "label": "Trøndelag County, Norway", "kind": "region", "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9908054/", "source_quote": "The Trøndelag Health Study (the HUNT Study) is a population-based cohort study of the adult population in Trøndelag County, Norway.", "note": "No point: the county had no coordinate source, and its 63.74, 11.32 was a copy of Levanger. The HUNT mark is the mean of the sites with a point." },
+        { "label": "Levanger, Norway", "kind": "examination_site", "lat": 63.75, "lon": 11.3, "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9908054/", "source_quote": "HUNT4-N consisted of questionnaires, a short interview, clinical examination and biological sampling, and was conducted by trained health professionals at examination stations in each of 23 municipalities in Nord-Trøndelag.", "note": "Design review 2026-11-22: was captioned as the HUNT Research Centre (kind coordinating_center, source https://www.ntnu.edu/hunt/about), which coordinates the study and recruits no one. Now one of the 23 Nord-Trøndelag municipalities with a HUNT4-N examination station. The point is unchanged." },
+        { "label": "Trondheim, Norway", "kind": "examination_site", "lat": 63.43, "lon": 10.4, "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9908054/", "source_quote": "1745 residents ≥70 years of age in districts of Trondheim municipality took part in an examination between 26 October 2018 and 12 June 2019", "note": "Added from the verifier's missing list (Kartverket place point 63.43048, 10.39506)." }
+      ]
+    },
+    {
+      "key": "ukb",
+      "name": "UK Biobank",
+      "full_name": "UK Biobank",
+      "sites": [
+        { "label": "Altrincham, Greater Manchester", "kind": "assessment_centre", "lat": 53.39, "lon": -2.35, "source_url": "https://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=54", "source_quote": "Stockport (pilot)", "place_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1458611/", "place_source_quote": "one assessment centre at Altrincham in Cheshire", "note": "Verifier correction: UK Biobank's grid point for the pilot centre is in Altrincham (BMJ 2006;332:1052: 'one assessment centre at Altrincham in Cheshire'), 13 km west of the Stockport town centre first given. Street address unconfirmed. Design review 2026-11-22: labelled by its town instead of 'Stockport (pilot), Altrincham', since Stockport and Altrincham are separate towns; UK Biobank Resource 11002 puts centre 10003 'Stockport Pilot' at grid 3770, 3880, in Altrincham. The page captions it 'pilot center, listed by UK Biobank as Stockport (pilot)'." },
+        { "label": "Barts, London", "kind": "assessment_centre", "lat": 51.52, "lon": -0.1, "source_url": "https://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=54", "source_quote": "Barts" },
+        { "label": "Birmingham, England", "kind": "assessment_centre", "lat": 52.48, "lon": -1.9, "source_url": "https://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=54", "source_quote": "Birmingham" },
+        { "label": "Bristol, England", "kind": "assessment_centre", "lat": 51.45, "lon": -2.59, "source_url": "https://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=54", "source_quote": "Bristol" },
+        { "label": "Bury, Greater Manchester", "kind": "assessment_centre", "lat": 53.59, "lon": -2.3, "source_url": "https://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=54", "source_quote": "Bury" },
+        { "label": "Cardiff, Wales", "kind": "assessment_centre", "lat": 51.51, "lon": -3.19, "source_url": "https://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=54", "source_quote": "Cardiff", "note": "Verifier suggestion applied: UK Biobank's own grid point (Resource 11002) instead of the city centre 51.48, -3.18." },
+        { "label": "Croydon, London", "kind": "assessment_centre", "lat": 51.38, "lon": -0.1, "source_url": "https://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=54", "source_quote": "Croydon" },
+        { "label": "Edinburgh, Scotland", "kind": "assessment_centre", "lat": 55.95, "lon": -3.19, "source_url": "https://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=54", "source_quote": "Edinburgh" },
+        { "label": "Glasgow, Scotland", "kind": "assessment_centre", "lat": 55.86, "lon": -4.25, "source_url": "https://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=54", "source_quote": "Glasgow" },
+        { "label": "Hounslow, London", "kind": "assessment_centre", "lat": 51.47, "lon": -0.36, "source_url": "https://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=54", "source_quote": "Hounslow" },
+        { "label": "Leeds, England", "kind": "assessment_centre", "lat": 53.8, "lon": -1.55, "source_url": "https://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=54", "source_quote": "Leeds" },
+        { "label": "Liverpool, England", "kind": "assessment_centre", "lat": 53.41, "lon": -2.99, "source_url": "https://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=54", "source_quote": "Liverpool" },
+        { "label": "Manchester, England", "kind": "assessment_centre", "lat": 53.48, "lon": -2.24, "source_url": "https://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=54", "source_quote": "Manchester" },
+        { "label": "Middlesbrough, England", "kind": "assessment_centre", "lat": 54.57, "lon": -1.24, "source_url": "https://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=54", "source_quote": "Middlesbrough" },
+        { "label": "Newcastle upon Tyne, England", "kind": "assessment_centre", "lat": 54.98, "lon": -1.62, "source_url": "https://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=54", "source_quote": "Newcastle" },
+        { "label": "Nottingham, England", "kind": "assessment_centre", "lat": 52.95, "lon": -1.16, "source_url": "https://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=54", "source_quote": "Nottingham" },
+        { "label": "Oxford, England", "kind": "assessment_centre", "lat": 51.75, "lon": -1.26, "source_url": "https://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=54", "source_quote": "Oxford" },
+        { "label": "Reading, England", "kind": "assessment_centre", "lat": 51.45, "lon": -0.98, "source_url": "https://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=54", "source_quote": "Reading" },
+        { "label": "Sheffield, England", "kind": "assessment_centre", "lat": 53.38, "lon": -1.47, "source_url": "https://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=54", "source_quote": "Sheffield" },
+        { "label": "Stoke-on-Trent, England", "kind": "assessment_centre", "lat": 53.02, "lon": -2.17, "source_url": "https://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=54", "source_quote": "Stoke" },
+        { "label": "Swansea, Wales", "kind": "assessment_centre", "lat": 51.62, "lon": -3.94, "source_url": "https://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=54", "source_quote": "Swansea" },
+        { "label": "Wrexham, Wales", "kind": "assessment_centre", "lat": 53.04, "lon": -2.99, "source_url": "https://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=54", "source_quote": "Wrexham" }
+      ]
+    }
+  ]
+}

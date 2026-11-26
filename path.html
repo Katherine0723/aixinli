@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About me: Aixin (Katherine) Li</title>
+<meta name="description" content="Aixin (Katherine) Li: from Jilin to St. Louis, Minneapolis and Labcorp.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400..600&family=Newsreader:opsz,wght@6..72,400..500&display=swap">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* head, palette, header and footer as on index.html */
+@font-face { font-family: "Newsreader Fallback"; src: local("Georgia"); size-adjust: 92%; }
+:root {
+  --bg: #FFF8F7;
+  --tint: #FBECEC;
+  --land: #E3C8CE;
+  --ink: #3A1830;
+  --ink-2: #644056;
+  --line: rgba(58, 24, 48, .14);
+  --blue: #A3305A; /* the accent; the name stays from the blue palette */
+  --coral: #F98A6C;
+  --mid: #E9596D;
+  --rose: #B9356A;
+  --current: linear-gradient(90deg, var(--coral), var(--mid), var(--rose));
+  --serif: "Newsreader", "Newsreader Fallback", Georgia, serif;
+  --sans: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --gut: clamp(16px, 4vw, 56px);
+  --head: 56px;
+  --t-sm: 14px;
+  --t-body: 18px;
+  --t-lead: 22px;
+  --t-h3: 22px;
+  --t-h1: clamp(40px, 5vw, 68px);
+  --ease: cubic-bezier(.22, 1, .36, 1);
+  --screen: calc(100vh - var(--head));
+  --screen: calc(100svh - var(--head));
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: var(--head); -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.55 var(--sans); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+p, h1, h2, ol { margin: 0; }
+h1, h2 { font-weight: 400; text-wrap: balance; }
+p, li { text-wrap: pretty; }
+a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; z-index: 3; background: var(--ink); color: #fff; padding: 8px 12px; }
+.skip:focus { left: 8px; }
+.wrap { max-width: 1320px; margin-inline: auto; padding-inline: var(--gut); }
+.yrs, footer p { letter-spacing: .01em; font-weight: 450; font-variant-numeric: tabular-nums lining-nums; }
+
+.top { position: sticky; top: 0; z-index: 2; background: var(--bg); border-bottom: 1px solid var(--line); }
+.top .wrap { height: var(--head); display: flex; justify-content: space-between; align-items: center; }
+.top a { color: var(--ink); text-decoration: none; font-size: 15px; padding: 10px 8px; margin-inline: -8px; transition: color .15s; }
+.top a:focus-visible { outline-offset: -4px; border-radius: 6px; }
+@media (hover: hover) { .top a:hover { text-decoration: underline; } }
+.top nav a[aria-current] { color: var(--blue); font-weight: 500; text-decoration: underline 2px; text-underline-offset: 6px; }
+.top .name { font-weight: 500; }
+.top nav { display: flex; gap: 28px; }
+
+footer { border-top: 1px solid var(--line); }
+footer p { max-width: 62ch; padding-block: 22px 28px; font-size: var(--t-sm); color: var(--ink-2); }
+footer p:first-child { max-width: none; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; color: var(--ink); }
+.totop { padding-block: 10px; margin-block: -10px; }
+
+/* the stage: the map stays put under the header while the chapters scroll over it, one card per screen */
+.map { position: relative; height: clamp(300px, 56vw, 640px); background: var(--bg); }
+.js:not(.flat) .map { position: sticky; top: var(--head); height: var(--screen); }
+.map canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.chapters { position: relative; list-style: none; padding-block: 8px 40px; }
+.js:not(.flat) .chapters { margin-top: calc(-1 * var(--screen)); padding-block: 0; pointer-events: none; }
+.ch { display: flex; padding-block: 12px; }
+.flat .chapters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+@media (min-width: 1100px) { .flat .chapters { grid-template-columns: repeat(4, minmax(0, 1fr)); } .flat .card h2 { min-height: 2lh; } }
+@media (max-width: 559px) { .flat .chapters { grid-template-columns: 1fr; } }
+.flat .ch { padding: 0; }
+.flat .card { max-width: none; }
+.flat .intro { grid-column: 1 / -1; }
+.flat .intro .card { max-width: none; }
+.flat .intro p { max-width: 44em; }
+.js:not(.flat) .ch { min-height: var(--screen); align-items: center; padding-block: 24px; }
+.js:not(.flat) .ch:not(.intro) { min-height: calc(var(--screen) * 1.1); } /* a little more scroll per stop, so each pan has time to settle */
+.card { position: relative; pointer-events: auto; width: 100%; max-width: 400px; padding: 24px 26px 26px; border: 1px solid var(--line); border-radius: 8px;
+  background: rgb(255 248 247 / .97); box-shadow: 0 1px 2px rgb(58 24 48 / .05), 0 12px 28px -14px rgb(58 24 48 / .2); }
+.intro .card { max-width: 520px; }
+.card::before { content: ""; position: absolute; left: -1px; right: -1px; top: -1px; height: 2px; border-radius: 8px 8px 0 0; background: var(--current);
+  transform: scaleX(0); transform-origin: 0 50%; transition: transform 900ms var(--ease); }
+.is-on .card::before, .flat .card::before { transform: none; }
+h1 { font: 400 var(--t-h1)/1.02 var(--serif); letter-spacing: -.01em; }
+.intro p { margin-top: 18px; font: 400 var(--t-lead)/1.45 var(--serif); }
+.yrs { font-size: var(--t-sm); color: var(--ink-2); }
+.card h2 { margin-top: 4px; font: 400 var(--t-h3)/1.2 var(--serif); }
+.card .t { margin-top: 10px; font: 400 var(--t-body)/1.55 var(--serif); }
+
+
+/* pause, as on index.html, held in a zero-height sticky strip (as on path-c.html) so the cards never cover it */
+.hold { position: relative; z-index: 1; height: 0; }
+.js:not(.flat) .hold { position: sticky; top: var(--head); }
+.pause { position: absolute; right: 12px; top: 8px; display: inline-grid; place-items: center; width: 40px; height: 40px; padding: 0; border: 0; border-radius: 50%;
+  background: var(--tint); color: var(--ink); cursor: pointer; transition: background-color .15s ease-out, scale .15s ease-out; }
+.pause::before { content: ""; position: absolute; inset: -2px; }
+@media (hover: hover) { .pause:hover { background: color-mix(in srgb, var(--tint), var(--ink) 9%); } }
+.pause:active { scale: .96; }
+.pause svg { width: 14px; height: 14px; fill: currentColor; }
+.pause .play { display: none; translate: 1px 0; }
+.paused .pause .pz { display: none; }
+.paused .pause .play { display: block; }
+.quiet .pause { display: none; }
+
+@media (max-width: 759px) {
+  body { font-size: 16px; }
+  .js:not(.flat) .ch { align-items: flex-end; padding-bottom: 5vh; }
+  .card, .intro .card { max-width: none; padding: 18px 20px 20px; }
+  .intro p { font-size: 19px; }
+  .card .t { font-size: 17px; }
+}
+@media (max-width: 559px) {
+  .top .name { display: none; }
+  .top nav { flex: 1; justify-content: space-between; gap: 2px; }
+  .top a { margin-inline: 0; padding-inline: 4px; }
+}
+@media (max-width: 359px) { .top a { font-size: 14px; } }
+@media (min-width: 760px) {
+  .pause { right: max(var(--gut), (100% - 1320px) / 2 + var(--gut)); }
+}
+@media (forced-colors: active) { .card::before { background: CanvasText; } }
+.grants { margin-top: 8px; font: 400 14px/1.5 var(--sans); color: var(--ink-2); letter-spacing: .01em; }
+p.back { margin-bottom: 18px; font: 500 15px/1.4 var(--sans); }
+p.back a { display: inline-block; padding-block: 10px; }
+.foot-links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.foot-links a { padding-block: 10px; margin-block: -10px; }
+h1.lede { font: 400 clamp(28px, 2.6vw, 36px)/1.25 var(--serif); letter-spacing: -.005em; text-wrap: balance; }
+.intro p.grow { margin-top: 16px; font: 400 17px/1.6 var(--sans); color: var(--ink-2); }
+.intro p.explore { margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--line); font: 500 16px/1.4 var(--sans); }
+.explore a { display: inline-block; padding-block: 10px; margin-block: -10px; }
+.explore span { display: inline-block; margin-left: .4em; transition: translate 200ms var(--ease); }
+@media (hover: hover) { .explore a:hover span { translate: 0 3px; } }
+#journey { scroll-margin-top: 40vh; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+/* each chapter card leads on: a click on the card, or its small arrow, glides to the next chapter (the last one back to the start) */
+.ch:not(.intro) .card { cursor: pointer; }
+.nx { position: absolute; right: 14px; bottom: 14px; display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid var(--line); background: var(--bg); color: var(--blue); transition: background-color 150ms ease-out, translate 200ms var(--ease); }
+.nx::before { content: ""; position: absolute; inset: -4px; } /* a 44 px target */
+.nx svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+@media (hover: hover) { .ch:not(.intro) .card:hover .nx { background: color-mix(in srgb, var(--bg), var(--blue) 10%); translate: 0 2px; } .ch:not(.intro) .card:hover .nx[href="#top"] { translate: 0 -2px; } }
+.ch:not(.intro) .card { padding-bottom: 58px; } /* room for the arrow under the last line */
+#ch-stl, #ch-msp, #ch-labcorp { scroll-margin-top: 40vh; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body id="top">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="name" href="index.html#top">Aixin (Katherine) Li</a>
+    <nav aria-label="Page"><a href="index.html">Home</a><a href="path.html" aria-current="page">About me</a><a href="index.html#work">Work</a><a href="index.html#papers">Papers</a><a href="index.html#contact">Contact</a></nav>
+  </div>
+</header>
+
+<main id="main" class="stage">
+  <div class="hold">
+      <button type="button" class="pause" aria-label="Pause animations" aria-pressed="false">
+        <svg class="pz" viewBox="0 0 14 14" aria-hidden="true"><rect x="3" y="2" width="3" height="10" rx="1"/><rect x="8" y="2" width="3" height="10" rx="1"/></svg>
+        <svg class="play" viewBox="0 0 14 14" aria-hidden="true"><path d="M4 2.2v9.6a.6.6 0 0 0 .9.5l7.4-4.8a.6.6 0 0 0 0-1L4.9 1.7a.6.6 0 0 0-.9.5z"/></svg>
+      </button>
+  </div>
+  <div class="map">
+    <canvas aria-hidden="true"></canvas>
+    <canvas aria-hidden="true"></canvas>
+  </div>
+
+  <ol class="chapters wrap">
+    <li class="ch intro" data-k="-1">
+      <div class="card">
+        <p class="back"><a href="index.html"><span aria-hidden="true">← </span>Back to the main page</a></p>
+        <h1 class="lede">Since I was six years old, I have dreamed of studying medicine and saving lives.</h1>
+        <p class="grow">Over the years, my interests have grown to include statistical genetics, bioinformatics, software engineering, large language models, and AI for human health.</p>
+        <p class="explore"><a href="#journey">Explore my journey<span aria-hidden="true">↓</span></a></p>
+      </div>
+    </li>
+    <li class="ch" data-k="0" id="journey">
+      <div class="card">
+        <p class="yrs">2013 to 2018</p>
+        <h2>Jilin, China</h2>
+        <p class="t">I earned a Bachelor of Medicine in Preventive Medicine at Jilin University, with clinical rotations across several specialties. From 2016 to 2019 I was also a public health intern at the Jilin CDC, working on HIV/AIDS prevention and disease surveillance.</p>
+        <a class="nx" href="#ch-stl" aria-label="Next: St. Louis"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 2v10M3 8l4 4 4-4"/></svg></a>
+      </div>
+    </li>
+    <li class="ch" data-k="1" id="ch-stl">
+      <div class="card">
+        <p class="yrs">2019 to 2021</p>
+        <h2>St. Louis, United States</h2>
+        <p class="t">I came to the United States for an MPH in Epidemiology and Biostatistics at the Brown School of Washington University in St. Louis.</p>
+        <a class="nx" href="#ch-msp" aria-label="Next: Minneapolis"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 2v10M3 8l4 4 4-4"/></svg></a>
+      </div>
+    </li>
+    <li class="ch" data-k="2" id="ch-msp">
+      <div class="card">
+        <p class="yrs">2021 to 2026</p>
+        <h2>Minneapolis, United States</h2>
+        <p class="t">I completed my Ph.D. in Epidemiology at the University of Minnesota, with minors in Biostatistics and Data Science. My research combined statistical genetics, proteomics, causal inference, and machine learning across six international cohorts. I served as a primary analyst on three NIH-funded research projects with approximately $6.6&nbsp;million in combined funding.</p>
+          <p class="grants">NIH grants: R01HL059367&nbsp;· R01HL155209&nbsp;· R21AG072530</p>
+        <a class="nx" href="#ch-labcorp" aria-label="Next: Labcorp"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 2v10M3 8l4 4 4-4"/></svg></a>
+      </div>
+    </li>
+    <li class="ch" data-k="3" id="ch-labcorp">
+      <div class="card">
+        <p class="yrs">2024, then 2025 to now</p>
+        <h2>Labcorp</h2>
+        <p class="t">I joined Labcorp as an intern in 2024 and trained deep learning models to predict HIV drug resistance from genomic data. Since 2025 I&nbsp;have been a Bioinformatics Scientist there, building clinical genomics software and models on AWS.</p>
+        <a class="nx" href="#top" aria-label="Back to the start"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 12V2M3 6l4-4 4 4"/></svg></a>
+      </div>
+    </li>
+  </ol>
+</main>
+
+<footer><div class="wrap"><p>© 2026 Aixin (Katherine) Li<span class="foot-links"><a href="index.html"><span aria-hidden="true">← </span>Back to the main page</a><a class="totop" href="#top">Back to top <span aria-hidden="true">↑</span></a></span></p></div></footer>
+
+<script>
+// Motion and Cur, as on index.html: one motion state (reduced motion or forced colors, and the pause) and the current
+const Motion = (() => {
+  const root = document.documentElement, subs = [], q = matchMedia('(prefers-reduced-motion: reduce), (forced-colors: active)');
+  const m = { paused: false, quiet: q.matches, on: (f) => subs.push(f) };
+  function sync() {
+    root.classList.toggle('quiet', m.quiet); root.classList.toggle('paused', m.paused);
+    document.querySelectorAll('.pause').forEach((b) => b.setAttribute('aria-pressed', m.paused));
+    subs.forEach((f) => f());
+  }
+  q.addEventListener('change', () => { m.quiet = q.matches; sync(); });
+  document.addEventListener('click', (e) => { if (e.target.closest('.pause')) { m.paused = !m.paused; sync(); } });
+  sync();
+  return m;
+})();
+
+const Cur = (() => {
+  const sm = (x) => { const u = x < 0 ? 0 : x > 1 ? 1 : x; return u * u * (3 - 2 * u); };
+  const mix = (a, b, f) => a.map((x, i) => Math.round(x + (b[i] - x) * f));
+  const rgba = (c, a) => 'rgba(' + c.join(',') + ',' + (a < 0.001 ? 0 : Math.min(1, a).toFixed(3)) + ')';
+  const ramp = (S, x) => { let j = 1; while (j < S.length - 1 && S[j][0] < x) j++; const [qa, ca] = S[j - 1], [qb, cb] = S[j]; return mix(ca, cb, Math.max(0, Math.min(1, (x - qa) / (qb - qa)))); };
+  const probe = document.createElement('canvas').getContext('2d', { willReadFrequently: true });
+  function rgb(name) { // any colour syntax: paint one pixel and read it back
+    probe.fillStyle = '#000'; probe.fillStyle = getComputedStyle(document.documentElement).getPropertyValue(name).trim() || '#000';
+    probe.clearRect(0, 0, 1, 1); probe.fillRect(0, 0, 1, 1); return [...probe.getImageData(0, 0, 1, 1).data.slice(0, 3)];
+  }
+  function palette() { // a core of --bg, the head in --coral, the body in --blue, over a pale --blue track
+    const [bg, ink, accent, a2, land] = ['--bg', '--ink', '--blue', '--coral', '--land'].map(rgb);
+    return { bg, ink, site: accent, a2, land, BG: rgba(bg, 1), INK: rgba(ink, 1), LAND: rgba(land, 1), A2: rgba(a2, 1), TRACK: rgba(accent, 1),
+      body: [[0, a2], [0.18, mix(a2, accent, 0.5)], [0.45, accent], [1, accent]], core: [[0, bg], [12, bg], [26, mix(bg, a2, 0.45)], [48, a2]] };
+  }
+  const bez = (k, u) => [0, 1].map((i) => (1 - u) * (1 - u) * k.a[i] + 2 * (1 - u) * u * k.c[i] + u * u * k.b[i]);
+  function arc(a, c, b) { // a quadratic from a to b through control c, with its length, path and 41 sample points
+    const k = { a, b, c, L: 0, p: new Path2D() };
+    for (let i = 1, q = a; i <= 32; i++) { const e = bez(k, i / 32); k.L += Math.hypot(e[0] - q[0], e[1] - q[1]); q = e; }
+    k.p.moveTo(a[0], a[1]); k.p.quadraticCurveTo(c[0], c[1], b[0], b[1]); k.pts = Array.from({ length: 41 }, (_, i) => bez(k, i / 40));
+    return k;
+  }
+  function part(k, u) { // the arc up to fraction u (de Casteljau)
+    const p = new Path2D(), qx = k.a[0] + (k.c[0] - k.a[0]) * u, qy = k.a[1] + (k.c[1] - k.a[1]) * u;
+    p.moveTo(k.a[0], k.a[1]); p.quadraticCurveTo(qx, qy, qx + (k.c[0] + (k.b[0] - k.c[0]) * u - qx) * u, qy + (k.c[1] + (k.b[1] - k.c[1]) * u - qy) * u);
+    return p;
+  }
+  // one sweep on one arc, its head h px along it, body px long. By distance behind the head the body runs --coral to --blue and
+  // fades out; a --coral sheen covers its first 40% and a 1.2 px core is --bg for 12 px. open: the far end fades over 24 px
+  const STOPS = [-3, -1.5, 0, 3, 6, 10, 14, 20, 26, 34, 42, 48, 60, 76, 96, 120, 150];
+  function band(ctx, C, k, h, body, al, open) {
+    const L = k.L;
+    const ds = STOPS.filter((d) => d < body).concat([body, h, h - L], open ? [h - L + 12, h - L + 24] : []).filter((d) => h - d >= 0 && h - d <= L).sort((x, y) => y - x);
+    if (ds.length < 2) return;
+    const G = () => ctx.createLinearGradient(k.a[0], k.a[1], k.b[0], k.b[1]), gb = G(), gh = G(), gc = G();
+    ds.forEach((d) => {
+      const o = (h - d) / L, f = al * (d < 0 ? 1 - sm(-d / 3) : 1) * (open ? sm((L - h + d) / 24) : 1), u = Math.max(0, d) / body;
+      gb.addColorStop(o, rgba(ramp(C.body, u), f * (1 - sm((u - 0.5) * 2))));
+      gh.addColorStop(o, rgba(C.a2, f * (1 - sm(u / 0.4))));
+      gc.addColorStop(o, rgba(ramp(C.core, Math.max(0, d)), f * 0.85 * (1 - sm((d - 24) / 24))));
+    });
+    ctx.lineCap = 'butt';
+    ctx.lineWidth = 2.4; ctx.strokeStyle = gb; ctx.stroke(k.p);
+    ctx.save(); ctx.translate(-0.4, -0.4); // the sheen and the core sit on the lit side
+    ctx.lineWidth = 1.6; ctx.strokeStyle = gh; ctx.stroke(k.p);
+    ctx.lineWidth = 1.2; ctx.strokeStyle = gc; ctx.stroke(k.p);
+    ctx.restore();
+  }
+  return { sm, mix, rgba, palette, arc, part, band };
+})();
+// Path: the map is the stage. Each chapter pans the map to its place, draws its arc in ink, and once an arc is drawn the
+// current runs slowly along the whole drawn path. The land is a lattice fixed to lon/lat, so it moves rigidly as the view pans
+// and zooms; finer lattice dots fade in as the view zooms in, so the dots stay one size and one density. Reduced motion, short
+// screens and no IntersectionObserver: the finished map, still, with the chapters listed below it
+(() => {
+  const root = document.documentElement, map = document.querySelector('.map'), [cvLand, cvLive] = map.querySelectorAll('canvas');
+  const chs = [...document.querySelectorAll('.ch')];
+  const { sm, mix, rgba, arc, part, band } = Cur, TAU = 2 * Math.PI, K = 1.3; // K: the north to south stretch of the Methods map
+  // lon (east of 60W taken past 180, so the Pacific is one span), lat, label, label offset x and y, text align
+  const P = {
+    jilin: [125.32, 43.88, 'Jilin, China', 0, 20, 'center'],
+    stl: [269.80, 38.63, 'St. Louis', -8, 17, 'right'],
+    msp: [266.73, 44.98, 'Minneapolis', 12, 4, 'left'],
+    bur: [280.56, 36.10, 'Labcorp headquarters, Burlington, NC', 12, 4, 'left', ['Labcorp HQ', 'Burlington, NC']], // the company, not a home; the last item: the phone label
+  };
+  // the six cohorts by country (as COUNTRY on index.html): one halo each; SCCS has no sites, its states are tinted on the land
+  const COUNTRY = [
+    { keys: ['aric', 'chs', 'mesa'], lines: ['United States · 4 cohorts', 'ARIC · CHS · MESA · SCCS'], ends: { aric: 'Jackson', chs: 'Sacramento', mesa: 'New York' } }, // ends: one field centre per cohort for its line, spread apart; SCCS lands on the centre of its states
+    { keys: ['ukb'], lines: ['United Kingdom', 'UK Biobank'] },
+    { keys: ['hunt'], lines: ['Norway', 'HUNT'], up: true },
+  ];
+  const STOPS = [
+    { dot: 'jilin', at: 'jilin' },
+    { arc: ['jilin', 'stl'], dot: 'stl', at: 'stl' },
+    { arc: ['stl', 'msp'], dot: 'msp', at: 'msp', cohorts: true },
+    { arc: ['msp', 'bur'], dot: 'bur', at: 'bur' },
+  ];
+  const VIEWS = [[66, 186, 41], [112, 292, 46], [226, 386, 47], [228, 388, 45], [112, 386, 32]]; // west, east, middle lat per chapter (Labcorp: the Minneapolis frame, nudged south, so the pan is short and the cohorts stay in); the intro and the still map use the last (set low so the land, not the Arctic sea, fills the frame)
+  const LAP = 7.2, PAN = 0.55, DRAW = 1.6; // s: the current's run over the whole path, the pan's ease time constant, an arc's draw
+
+  const wrapLon = (lon) => ((lon + 180) % 360 + 360) % 360 - 180;
+  let landAt = () => false, sccsAt = () => false, sccsMid = null, groups = [];
+  function masks(m) { // land.json: boxes of lon/lat cells, finest first (as the Methods map reads them)
+    const one = ({ lon0, lat1, d, w, h, bits }) => {
+      const b = Uint8Array.from(atob(bits), (c) => c.charCodeAt(0));
+      return (lon, lat) => { const i = Math.floor((lon - lon0) / d), j = Math.floor((lat1 - lat) / d); if (i < 0 || j < 0 || i >= w || j >= h) return -1; const n = j * w + i; return (b[n >> 3] >> (7 - (n & 7))) & 1; };
+    };
+    const eu = one(m.eu), na = one(m.na), world = one(m.world), south = one(m.sccs);
+    landAt = (lon, lat) => { lon = wrapLon(lon); let v = eu(lon, lat); if (v < 0) v = na(lon, lat); if (v < 0) v = world(lon, lat); return v === 1; };
+    sccsAt = (lon, lat) => south(wrapLon(lon), lat) === 1;
+    const q = m.sccs, c = []; // the centre of the SCCS cells, where its line lands (as on the Methods map)
+    for (let j = 0; j < q.h; j++) for (let i = 0; i < q.w; i++) { const lon = q.lon0 + (i + 0.5) * q.d, lat = q.lat1 - (j + 0.5) * q.d; if (south(lon, lat) === 1) c.push([lon + 360, lat]); }
+    sccsMid = [c.reduce((a, p) => a + p[0], 0) / c.length, c.reduce((a, p) => a + p[1], 0) / c.length];
+  }
+
+  let W = 0, H = 0, big = true, C = Cur.palette(), bx = 0, by = 0, bw = 1, PITCH = 4, R = 1.5;
+  let cur = -1, view = null, v = [0, 0, 0, 0], co = 0, tint = 0, landKey = '', clock = 0, fade = 0, seen = false, flat = false, raf = 0, last = 0;
+  const target = (k) => { const [w, e, lat] = VIEWS[k < 0 || flat ? 4 : k]; return [(w + e) / 2, lat, Math.log(e - w)]; };
+  const scale = () => bw / Math.exp(view[2]);
+  const X = (lon) => bx + (lon - view[0]) * scale(), Y = (lat) => by + (view[1] - lat) * scale() * K;
+  const xy = (p) => [X(P[p][0]), Y(P[p][1])];
+  const ctl = ([x0, y0], [x2, y2]) => { return [(x0 + x2) / 2, (y0 + y2) / 2 - Math.hypot(x2 - x0, y2 - y0) / 4]; };
+
+  function size() {
+    const d = Math.min(3, devicePixelRatio || 1);
+    W = map.clientWidth; H = map.clientHeight; big = W >= 760;
+    [cvLand, cvLive].forEach((cv) => { cv.width = Math.round(W * d); cv.height = Math.round(H * d); cv.getContext('2d').setTransform(d, 0, 0, d, 0, 0); });
+    // the box the view fits into: right of the cards on wide screens, above them on phones, the whole map when flat
+    const card = chs[1].querySelector('.card').getBoundingClientRect(), x0 = flat ? (big ? 96 : 48) : big ? card.right - map.getBoundingClientRect().left + 40 : 16;
+    const [y0, y1] = flat ? [0.12, 0.92] : big ? [0.1, 0.9] : [0.14, 0.5];
+    bx = (x0 + W - 24) / 2; bw = W - 24 - x0; by = (y0 + y1) / 2 * H;
+    PITCH = big ? 4 : 3.2; R = big ? 1.5 : 1.15; C = Cur.palette(); landKey = '';
+  }
+
+  function drawLand() { // the lattice at the finest level whose spacing is at least PITCH; its own dots fade in from 1 to 1.35 PITCH
+    const key = view.join() + tint + W + H; if (key === landKey) return; landKey = key;
+    const ctx = cvLand.getContext('2d'), sc = scale(), l = Math.max(0, Math.ceil(Math.log2(PITCH / (0.25 * sc)))), s = 0.25 * 2 ** l, px = s * sc;
+    const a = sm((px - PITCH) / (0.35 * PITCH)), full = new Path2D(), fine = new Path2D(), south = new Path2D();
+    const lonA = view[0] + (0 - bx) / sc, lonB = view[0] + (W - bx) / sc, latA = view[1] - (H - by) / (sc * K), latB = view[1] + by / (sc * K);
+    for (let j = Math.ceil(latA * K / s); j <= Math.floor(latB * K / s); j++) for (let i = Math.ceil(lonA / s); i <= Math.floor(lonB / s); i++) {
+      const lon = i * s, lat = j * s / K, coarse = !(i & 1) && !(j & 1);
+      if ((!coarse && a < 0.02) || !landAt(lon, lat)) continue;
+      const x = X(lon), y = Y(lat), p = tint > 0 && sccsAt(lon, lat) ? south : coarse ? full : fine;
+      p.moveTo(x + R, y); p.arc(x, y, R, 0, TAU);
+    }
+    ctx.clearRect(0, 0, W, H);
+    ctx.fillStyle = C.LAND; ctx.fill(full); ctx.globalAlpha = a; ctx.fill(fine); ctx.globalAlpha = 1;
+    ctx.fillStyle = rgba(mix(C.land, C.site, 0.3 * tint), 1); ctx.fill(south); // the SCCS states, tinted at Minneapolis as on the Methods map
+  }
+
+  function drawLive() {
+    const ctx = cvLive.getContext('2d'), m = big ? 1 : 0.8, u = v.map(sm), ca = u[2] * (1 - 0.3 * u[3]); // ca: the cohorts, a little quieter once the Labcorp leg is drawn
+    ctx.clearRect(0, 0, W, H); ctx.setLineDash([]);
+    const arcs = STOPS.map((st) => st.arc && arc(xy(st.arc[0]), ctl(xy(st.arc[0]), xy(st.arc[1])), xy(st.arc[1])));
+    arcs.forEach((k, i) => { if (k && u[i] > 0) { ctx.lineWidth = 2 * m; ctx.strokeStyle = C.INK; ctx.stroke(u[i] < 1 ? part(k, u[i]) : k.p); } });
+    if (fade > 0.001) { // the current: one run along the fully drawn arcs, as one path
+      const done = []; for (let i = 0; i < STOPS.length && (!STOPS[i].arc || v[i] === 1) && i <= cur; i++) if (arcs[i]) done.push(arcs[i]);
+      const total = done.reduce((s, q) => s + q.L, 0), body = 0.12 * arcs.reduce((s, q) => s + (q ? q.L : 0), 0);
+      let h = (clock / LAP % 1) * (total + body);
+      done.forEach((q) => { band(ctx, C, q, h, body, fade, false); h -= q.L; });
+    }
+    if (cur >= 0) { // a steady soft ring on the active place
+      const [x, y] = xy(STOPS[cur].at);
+      ctx.lineWidth = 1.5; ctx.strokeStyle = C.TRACK; ctx.globalAlpha = 0.35 * u[cur];
+      ctx.beginPath(); ctx.arc(x, y, 9 * Math.max(m, 0.8), 0, TAU); ctx.stroke(); ctx.globalAlpha = 1;
+    }
+    if (ca > 0) { // the six cohorts by country, quietly: a soft halo over each country's sites, then one thin line from Minneapolis, drawn once
+      const sc = scale(), o = xy('msp');
+      groups.forEach((g) => {
+        const c = [X(g.lon), Y(g.lat)], r = Math.max(14 * m, Math.min(80 * m, g.r * sc)), halo = ctx.createRadialGradient(c[0], c[1], 0, c[0], c[1], r);
+        halo.addColorStop(0, rgba(C.site, 0.26 * ca)); halo.addColorStop(0.6, rgba(C.site, 0.12 * ca)); halo.addColorStop(1, rgba(C.site, 0));
+        ctx.fillStyle = halo; ctx.beginPath(); ctx.arc(c[0], c[1], r, 0, TAU); ctx.fill();
+        const ends = g.ends ? g.ends.map(([lon, lat]) => [X(lon), Y(lat)]) : [c]; // the US: one line to each of its four cohorts
+        if (co > 0) { ctx.globalAlpha = 0.6 * ca; ctx.lineWidth = 1; ctx.strokeStyle = C.TRACK; ends.forEach((e) => ctx.stroke(part(arc(o, ctl(o, e), e), sm(co)))); }
+        ctx.globalAlpha = 0.9 * ca; ctx.fillStyle = C.TRACK; ctx.strokeStyle = C.BG; ctx.lineWidth = 1.5;
+        ends.forEach((e) => { ctx.beginPath(); ctx.arc(e[0], e[1], 3 * m, 0, TAU); ctx.stroke(); ctx.fill(); });
+        g.at = [c, r];
+      });
+      ctx.globalAlpha = 1;
+    }
+    STOPS.forEach((st, i) => { if (!st.dot || u[i] <= 0) return; const [x, y] = xy(st.dot); ctx.beginPath(); ctx.arc(x, y, 4 * m * u[i], 0, TAU); ctx.fillStyle = C.INK; ctx.fill(); });
+    ctx.font = (big ? '500 14px' : '500 13px') + ' "Inter Tight", system-ui, sans-serif';
+    ctx.lineWidth = 4; ctx.lineJoin = 'round'; ctx.strokeStyle = C.BG; ctx.fillStyle = C.INK;
+    STOPS.forEach((st, i) => {
+      const p = st.dot; if (!p || u[i] <= 0) return;
+      const [x, y] = xy(p), lines = big ? [P[p][2]] : P[p][6] || [P[p][2].split(',')[0]];
+      if (x < bx - bw / 2 - 8) return; // a place panned out of the frame keeps its dot but not its label
+      let [tx, ty, al] = [x + P[p][3], y + P[p][4], P[p][5]];
+      if (!big && flat) [tx, ty, al] = { msp: [x, y - 10, 'center'], stl: [x - 8, y + 4, 'right'], bur: [x, y + 18, 'center'] }[p] || [tx, ty, al]; // the still map on phones: the three US places sit close, so spread their labels
+      else if ((!big && p === 'stl') || (al === 'right' && tx - ctx.measureText(lines[0]).width < 8)) [tx, ty, al] = [x, y + 20, 'center']; // phones, or no room on the left: set it under the dot
+      ctx.globalAlpha = u[i]; ctx.textAlign = al; lines.forEach((t, j) => { ctx.strokeText(t, tx, ty + 16 * j); ctx.fillText(t, tx, ty + 16 * j); });
+    });
+    if (ca > 0) groups.forEach((g, i) => { // the country labels: under the halo (Norway over it), the cohort names in a second quieter line, kept inside the frame
+      const [[x, y], r] = g.at, lines = big && g.lines[0] !== COUNTRY[0].lines[0] ? [g.lines.join(' · ')] : g.lines;
+      if (x < 0 || x > W) return;
+      ctx.textAlign = 'center';
+      lines.forEach((t, j) => {
+        ctx.font = (j ? '400 ' : '500 ') + (big ? (j ? 13 : 14) : (j ? 12 : 13)) + 'px "Inter Tight", system-ui, sans-serif';
+        const hw = ctx.measureText(t).width / 2 + 8, tx = Math.max(hw, Math.min(W - hw, x)), ty = g.up ? y - r - 6 - 15 * (lines.length - 1 - j) : y + r + 14 + 15 * j + (!big && flat && !i ? 10 : 0); // the still map on phones: the US label clears the Labcorp label
+        ctx.globalAlpha = ca * (j ? 0.75 : 1); ctx.strokeText(t, tx, ty); ctx.fillText(t, tx, ty);
+      });
+    });
+    ctx.globalAlpha = 1;
+  }
+
+  const live = () => seen && !document.hidden && !Motion.quiet && !Motion.paused;
+  function frame(now) {
+    raf = 0;
+    const dt = last ? Math.min(0.05, (now - last) / 1000) : 0; last = now;
+    const snap = flat || Motion.paused || !seen, T = target(cur), e = snap ? 1 : 1 - Math.exp(-dt / PAN);
+    const nv = view.map((x, i) => (Math.abs(T[i] - x) < 1e-3 ? T[i] : x + (T[i] - x) * e));
+    const vv = v.map((x, k) => { const g = k <= cur ? 1 : 0; return snap ? g : x < g ? Math.min(g, x + dt / DRAW) : Math.max(g, x - dt / 0.6); });
+    const busy = nv.some((x, i) => x !== view[i]) || vv.some((x, i) => x !== v[i]);
+    const nc = (cur >= 2 || flat) && vv[2] === 1 ? (snap ? 1 : Math.min(1, co + dt / 3)) : snap ? 0 : Math.max(0, co - dt / 0.6); // the cohort lines start once Minneapolis is drawn, and stay on at Labcorp
+    view = nv; v = vv; tint = sm(v[2]); const moved = nc !== co; co = nc;
+    if (live()) { clock += dt; fade = Math.min(1, fade + dt / 0.6); } else fade = Math.max(0, fade - dt / 0.35);
+    if (Motion.quiet) fade = 0;
+    drawLand(); drawLive();
+    if (busy || moved || live() || fade > 0) raf = requestAnimationFrame(frame); else last = 0;
+  }
+  const kick = () => { if (!raf && W) raf = requestAnimationFrame(frame); };
+
+  function go(k) {
+    if (k === cur || flat) return;
+    cur = k;
+    chs.forEach((el) => { const on = +el.dataset.k === k && k >= 0; el.classList.toggle('is-on', on); on ? el.setAttribute('aria-current', 'step') : el.removeAttribute('aria-current'); });
+    map.classList.toggle('co', k >= 2); map.classList.toggle('go', k >= 0);
+    kick();
+  }
+
+  const short = matchMedia('(max-height: 499px)');
+  const io = 'IntersectionObserver' in window && new IntersectionObserver((es) => es.forEach((e) => e.isIntersecting && go(+e.target.dataset.k)), { rootMargin: matchMedia('(max-width: 759px)').matches ? '-5% 0px -85% 0px' : '-45% 0px -45% 0px' }); // phones: a stop turns current once its card is up from the bottom edge. ponytail: read once at load, so a resize across 760px keeps the first margin until reload
+  function setFlat() {
+    const was = flat; flat = short.matches || Motion.quiet || !io;
+    root.classList.toggle('flat', flat);
+    if (flat) { cur = 3; co = 1; chs.forEach((el) => { el.classList.remove('is-on'); el.removeAttribute('aria-current'); }); }
+    else if (was || !view) { cur = -2; io.disconnect(); chs.forEach((el) => io.observe(el)); } // the observer reports the chapter on screen again
+    view = view || target(cur); size(); kick();
+  }
+  short.addEventListener('change', setFlat);
+  Motion.on(setFlat);
+  setFlat();
+  if (io) new IntersectionObserver(([e]) => { seen = e.isIntersecting; kick(); }).observe(map); else seen = true;
+  new ResizeObserver(() => { size(); kick(); }).observe(map);
+  document.addEventListener('visibilitychange', kick);
+  if (document.fonts) document.fonts.ready.then(kick);
+
+  Promise.all(['data/land.json', 'data/sites.json'].map((u) => fetch(u).then((r) => { if (!r.ok) throw new Error(u + ' ' + r.status); return r.json(); })))
+    .then(([land, s]) => {
+      masks(land.masks);
+      groups = COUNTRY.map((g) => { // the centre of a country's sites, and their spread in degrees (north to south stretched by K)
+        const pts = s.cohorts.filter((c) => g.keys.includes(c.key)).flatMap((c) => (c.sites || []).filter((q) => q.lat != null).map((q) => [q.lon < 60 ? q.lon + 360 : q.lon, q.lat]));
+        const lon = pts.reduce((a, q) => a + q[0], 0) / pts.length, lat = pts.reduce((a, q) => a + q[1], 0) / pts.length;
+        const ends = g.ends && [...s.cohorts.filter((c) => g.ends[c.key]).map((c) => c.sites.find((q) => q.label.startsWith(g.ends[c.key]))).map((q) => [q.lon + 360, q.lat]), ...(sccsMid ? [sccsMid] : [])];
+        return { ...g, ends, lon, lat, r: Math.max(...pts.map((q) => Math.hypot(q[0] - lon, (q[1] - lat) * K))) };
+      });
+      landKey = ''; kick();
+    })
+    .catch((err) => console.error('[path-map]', err)); // the route still draws, over an empty sea
+})();
+</script>
+<script>
+// a click anywhere on a chapter card follows its arrow, unless it is a text selection or another link
+document.querySelectorAll('.ch:not(.intro) .card').forEach((c) => c.addEventListener('click', (e) => {
+  if (getSelection().isCollapsed && !e.target.closest('a')) c.querySelector('.nx').click();
+}));
+</script>
+</body>
+</html>

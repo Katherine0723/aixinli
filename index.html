@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aixin (Katherine) Li</title>
+<meta name="description" content="Aixin (Katherine) Li: Bioinformatics Scientist at Labcorp, trained in medicine, with a Ph.D. in epidemiology.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400..600;1,400..500&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,400..500&display=swap">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* Georgia scaled to Newsreader's width, so the hero wraps the same before and after the web font arrives (no load shift on phones) */
+@font-face { font-family: "Newsreader Fallback"; src: local("Georgia"); size-adjust: 92%; }
+:root {
+  --bg: #FFF8F7;
+  --tint: #FBECEC;
+  --land: #E3C8CE;
+  --ink: #3A1830;
+  --ink-2: #644056;
+  --line: rgba(58, 24, 48, .14);
+  --blue: #A3305A; /* the accent; the name stays from the blue palette */
+  --coral: #F98A6C;
+  --mid: #E9596D;
+  --rose: #B9356A;
+  --current: linear-gradient(90deg, var(--coral), var(--mid), var(--rose));
+  --dots: radial-gradient(#F3D9DC 1px, transparent 1.2px) 0 0 / 8px 8px;
+  --serif: "Newsreader", "Newsreader Fallback", Georgia, serif;
+  --sans: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --gut: clamp(16px, 4vw, 56px);
+  --head: 56px;
+  /* one type scale from an 18 px base */
+  --t-sm: 14px;
+  --t-body: 18px;
+  --t-lead: 22px;
+  --t-h3: 22px;
+  --t-hero: clamp(24px, 2.3vw, 30px);
+  --t-h2: clamp(32px, 3.4vw, 44px);
+  --t-h1: clamp(40px, 4.4vw, 60px);
+  --ease: cubic-bezier(.22, 1, .36, 1);
+  --calm: cubic-bezier(.25, .1, .25, 1); /* the panel: a plain ease, no overshoot */
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--head) + 1px); -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.55 var(--sans); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+p, h1, h2, h3, dl, dd, figure, ul { margin: 0; }
+h1, h2, h3 { font-weight: 400; }
+h1, h2, h3, h4 { text-wrap: balance; }
+p, dd, figcaption, li { text-wrap: pretty; }
+a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; z-index: 3; background: var(--ink); color: #fff; padding: 8px 12px; }
+.skip:focus { left: 8px; }
+.wrap { max-width: 1320px; margin-inline: auto; padding-inline: var(--gut); }
+#work { overflow-x: clip; } /* an unfolding area never makes the page scroll sideways */
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+/* small sans text: a touch of tracking and weight so it holds up at 14 px */
+.meta, .legend, figcaption, .lab, footer p { letter-spacing: .01em; font-weight: 450; font-variant-numeric: tabular-nums lining-nums; }
+
+/* header */
+.top { position: sticky; top: 0; z-index: 2; background: var(--bg); border-bottom: 1px solid var(--line); }
+.top .wrap { height: var(--head); display: flex; justify-content: space-between; align-items: center; }
+.top a { color: var(--ink); text-decoration: none; font-size: 15px; padding: 10px 8px; margin-inline: -8px; transition: color .15s; }
+.top a:focus-visible { outline-offset: -4px; border-radius: 6px; }
+@media (hover: hover) { .top a:hover { text-decoration: underline; } }
+.top nav a[aria-current] { color: var(--blue); text-decoration: underline 2px; text-underline-offset: 6px; }
+.top .name { font-weight: 500; }
+.top nav { display: flex; gap: 28px; }
+
+/* first screen */
+.hero { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 20px; align-items: start; padding-block: clamp(40px, 8vh, 88px) clamp(32px, 6vh, 64px); } /* a short bottom so the domains heading and the tile tops make the first screen */
+.txt { grid-column: 1 / span 8; } /* 70:30 with the portrait (Katherine 2026-11-25: lighter, quieter) */
+h1 { font: 300 var(--t-h1)/1.05 var(--serif); letter-spacing: -.005em; }
+.role { margin-top: 18px; font-size: 17px; color: var(--blue); }
+.creds { margin-top: 6px; font-size: 14px; line-height: 1.6; letter-spacing: .01em; color: var(--ink-2); }
+.words { margin-top: 10px; font: 400 clamp(20px, 1.7vw, 24px)/1.45 var(--serif); max-width: 30em; }
+.words.ctx { margin-top: 40px; font-size: clamp(18px, 1.4vw, 20px); line-height: 1.6; max-width: 34em; color: var(--ink-2); } /* one passage: context, then the motivation a step larger and in full ink */
+figcaption { margin-top: 6px; font: var(--t-sm)/1.4 var(--sans); color: var(--ink-2); }
+.aboutme { margin-top: 28px; font: 500 17px/1.4 var(--sans); }
+.aboutme a { display: inline-block; padding-block: 10px; }
+.aboutme span { display: inline-block; margin-left: .35em; transition: translate 200ms var(--ease); }
+@media (hover: hover) { .aboutme a:hover span { translate: 3px 0; } }
+.links { margin-top: 14px; display: flex; flex-wrap: wrap; column-gap: 24px; font-size: 15px; font-weight: 500; }
+.links a { padding: 10px 0; transition: text-decoration-thickness .15s; }
+@media (hover: hover) { .links a:hover { text-decoration-thickness: 2px; } }
+.refs a { padding-block: .45em; } /* taller hit area, no change to the line */
+.pic { grid-column: 10 / span 3; justify-self: end; margin-top: 8px; }
+.pic img { display: block; width: auto; height: auto; max-width: 100%; max-height: calc(100vh - 240px); max-height: calc(100svh - 240px);
+  border-radius: 6px; }
+
+/* sections */
+.sec { border-top: 1px solid var(--line); padding-block: clamp(48px, 6vw, 80px) clamp(56px, 7vw, 88px); }
+.band { background: var(--tint); border-top: 0; }
+.band + .sec { border-top: 0; }
+.sec h2 { font: 400 var(--t-h2)/1.1 var(--serif); letter-spacing: -.01em; }
+
+.legend { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 4px 28px; font-size: var(--t-sm); color: var(--ink-2); }
+.legend span, .legend li { display: inline-flex; align-items: center; gap: 8px; }
+
+/* What I work on (Katherine 2026-11-25): three titles on the page's three tracks, all three panels stacked below them. A click on a
+   title shows only its panel, the title in rose with a minus; the minus, Escape or a click outside brings all three back */
+.sec h3 { font: 400 var(--t-h3)/1.2 var(--serif); }
+.sec .lab { margin: 56px 0 10px; font: 500 var(--t-sm)/1.4 var(--sans); color: var(--ink-2); }
+.sec h2 + .lab { margin-top: 36px; }
+#work { padding-block: clamp(16px, 1.2vw, 20px) clamp(40px, 4vw, 56px); }
+#work-h { line-height: 1; }
+.nw { white-space: nowrap; }
+.wk { margin-top: 20px; overflow-anchor: none; } /* the script keeps the page still, not the browser */
+.tabs { position: sticky; top: var(--head); z-index: 1; background: var(--tint); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: clamp(28px, 3.4vw, 56px); }
+.tab { position: relative; align-self: start; padding: 14px 0 24px; border: 0; border-top: 2px solid var(--ink); background: none; font: inherit; color: var(--ink); text-align: left; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: color 200ms ease-out; }
+.tab[aria-pressed="true"], .tab[aria-current="true"] { padding-top: 12px; border-top: 4px solid var(--blue); color: var(--blue); }
+.tab .lab { display: block; margin: 0 0 8px; color: inherit; transition-property: none; } /* reduced motion would give it a .01ms transition, and the stuck row is measured at once */
+.tn { display: block; font: 400 clamp(23px, 1.9vw, 27px)/1.15 var(--serif); letter-spacing: -.01em; text-wrap: balance; }
+@media (hover: hover) { .tab:not(.still):hover { color: var(--blue); } } /* .still: no hover rose until the pointer leaves a title it just clicked */
+.tab:focus-visible { outline: 0; }
+.tab:focus-visible .tn, .stuck .tab:focus-visible .lab { text-decoration: underline 2px; text-underline-offset: 6px; } /* focus is an underline, never a box */
+/* the glyph: a stroke about as heavy as the title's stem, centred at cap height, in the title's ink (mock for Katherine 2026-11-25) */
+.pm, .stuck .tab .lab::after { content: ""; display: inline-block; width: .5em; height: .5em; margin-left: .32em; vertical-align: .08em; background: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6 0v12M0 6h12' stroke='%23000' stroke-width='1.7'/%3E%3C/svg%3E") center / contain no-repeat; }
+.tab:is([aria-pressed="true"], [aria-current="true"]) .pm, .tab:is([aria-pressed="true"], [aria-current="true"]) .lab::after { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M0 6h12' stroke='%23000' stroke-width='1.7'/%3E%3C/svg%3E"); }
+/* stuck under the header (Katherine 2026-11-25): one slim line of short names, the area being read in rose; the first open
+   panel takes the height the row gave up (--dh, set by the script), so nothing below moves */
+.tn { transition: opacity 200ms ease-out, visibility 200ms; }
+.stuck .tabs { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: clamp(16px, 3.4vw, 56px); }
+.stuck .tab { padding: 14px 0 16px; }
+.stuck .tab:is([aria-pressed="true"], [aria-current="true"]) { padding-top: 12px; }
+.stuck .tab .lab { margin: 0; font: 400 19px/24px var(--serif); letter-spacing: -.01em; }
+.stuck .tn { position: absolute; visibility: hidden; opacity: 0; }
+.stuck .pn:nth-child(1 of .pn:not([hidden])) { margin-top: var(--dh); }
+.pn { display: grid; padding-top: 28px; border-top: 1px solid var(--line); transition-property: none; } /* the reduced-motion rule gives every property a .01ms transition; the margin must land at once so the exit stays still */
+.pn[hidden] { display: none; }
+.wk:not(.one) .pn { border-top: 2px solid var(--ink); } /* stacked: each part ruled like its title above */
+.wk:not(.one) .pn + .pn { margin-top: 88px; } /* the 40px between parts inside an area, plus 48 */
+.wk:not(.one) .pt { font-size: 0; } /* stacked: only the label shows, the long title is the row's; screen readers still hear it */
+.wk:not(.one) .pt .lab { font: 400 clamp(23px, 1.9vw, 27px)/1.15 var(--serif); letter-spacing: -.01em; }
+.pn.in { animation: pn-in 260ms var(--calm); } /* the unfold; reduced motion makes it instant */
+@keyframes pn-in { from { grid-template-rows: 0fr; opacity: 0; overflow: clip; } to { grid-template-rows: 1fr; overflow: clip; } }
+.pi { min-height: 0; }
+.pi > * + * { margin-top: 40px; }
+.pt { margin-bottom: 10px; font: 400 22px/1.25 var(--serif); } /* each panel names itself, so a fast scroller sees where one ends; always shown, so nothing pops in on exit */
+.pt .lab { display: block; margin: 0 0 4px; color: var(--ink); }
+.ph .sum { max-width: 34em; font: 400 19px/1.5 var(--serif); }
+.ar { display: grid; gap: 28px clamp(28px, 3.4vw, 56px); }
+.ar h3 { margin: 0; font: 400 21px/1.25 var(--serif); color: var(--blue); }
+.ar p { margin-top: 8px; max-width: 34em; font: 400 17px/1.55 var(--serif); }
+.ar .kw { margin-top: 10px; max-width: calc(34em * 17 / 14); font: 400 14px/1.55 var(--sans); color: var(--ink-2); } /* same width as the 17px sentence above */
+#p-methods .hl { margin-bottom: 40px; } /* Methods opens on its proof row, then its areas, then the map */
+@media (min-width: 760px) { .ar { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 759px) { .tabs { grid-template-columns: minmax(0, 1fr); } .tab { padding-bottom: 18px; } } /* phones: the titles stack, the rules stay */
+/* the proof row in the Methods panel: the funding figures beside Circulation */
+.hl { display: grid; gap: 24px clamp(28px, 3.4vw, 56px); }
+@media (min-width: 1000px) { .hl { grid-template-columns: repeat(2, minmax(0, 1fr)); } } /* on the tracks of the areas below */
+.hl p > * { display: block; }
+.hl .fig { font: 400 clamp(36px, 3.4vw, 46px)/1.1 var(--serif); letter-spacing: -.01em; color: var(--blue); }
+.fig i { font-synthesis: none; }
+.hl span { margin-top: 8px; font: 500 16px/1.35 var(--sans); color: var(--ink); }
+.hl small { margin-top: 6px; max-width: 30em; font: 400 14px/1.5 var(--sans); color: var(--ink-2); }
+.fund .pa { margin-bottom: 14px; font: 600 15px/1.4 var(--sans); color: var(--blue); }
+.fund .st { display: grid; grid-template-columns: repeat(3, max-content); column-gap: clamp(16px, 2vw, 40px); }
+.fund .fig { font-size: clamp(30px, 2.6vw, 38px); }
+.fund .st span { max-width: 6.8em; font-size: 15px; text-wrap: balance; }
+@media (max-width: 379px) { .fund .fig { font-size: 27px; } .fund .st span { font-size: 14px; } }
+.fund + p .fig { font-size: clamp(30px, 2.6vw, 38px); }
+@media (min-width: 1000px) { .fund + p { padding-top: 35px; } } /* Circulation on the same line as the three figures */
+@media (max-width: 349px) { .fund .st { grid-template-columns: repeat(2, max-content); row-gap: 14px; } }
+.fund > small { display: block; margin-top: 12px; text-wrap: balance; font: 400 14px/1.5 var(--sans); color: var(--ink-2); }
+.hl a { padding-block: 14px; }
+.hl a i { font-style: normal; }
+/* Systems: its three areas side by side on wide screens, one per column like the titles above */
+@media (min-width: 1000px) { #p-systems .ar { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* the cohort map, from team/research-world */
+.g { flex: none; width: 15px; height: 15px; fill: currentColor; color: var(--blue); }
+.g.area { color: color-mix(in srgb, var(--land), var(--blue) 62%); } /* the SCCS dots on the map are the same mix */
+.world { display: none; min-width: 0; }
+.js .world { display: block; }
+.world figcaption { margin: 0 0 10px; }
+.world figcaption b { font-weight: 600; color: var(--ink); }
+.stack { position: relative; width: 100%; aspect-ratio: 143 / 55.9; } /* the map's own lon and lat span, so CSS knows its height before the script draws */
+.stack canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.world .stack canvas { cursor: default; }
+.world .stack.hit canvas { cursor: pointer; }
+.tip { position: absolute; z-index: 1; max-width: 240px; padding: 6px 10px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg);
+  font: 400 13.5px/1.4 var(--sans); color: var(--ink-2); pointer-events: none; transform: translate(-50%, calc(-100% - 12px)); width: max-content; }
+.tip b { display: block; font-weight: 600; color: var(--ink); }
+.world .legend { list-style: none; padding: 0; margin-top: 12px; gap: 0 18px; font-size: var(--t-sm); }
+.world .legend li { white-space: nowrap; }
+.world .legend .hub { color: var(--ink); min-height: 40px; }
+.world .legend button { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0; border: 0; background: none; font: inherit; color: var(--ink-2); cursor: pointer; transition: color 150ms ease-out; }
+.world .legend button[aria-pressed="true"], .world .legend button.on { color: var(--ink); text-decoration: underline 1px; text-underline-offset: 4px; }
+@media (hover: hover) { .world .legend button:hover { color: var(--ink); } }
+
+
+/* papers and honors: title and authors across the first two columns, journal and year in the third, the overview's tracks */
+.refs { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+.refs li { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: clamp(28px, 3.4vw, 56px); align-items: baseline; padding: 12px 0 14px; font: 400 var(--t-body)/1.45 var(--serif); text-wrap: pretty; }
+.refs li > div { grid-column: 1 / span 2; max-width: 38em; }
+.refs .j { grid-column: 3; }
+.refs li + li { border-top: 1px solid var(--line); }
+.refs a { color: var(--ink); text-decoration-color: rgb(163 48 90 / .35); transition: color .15s, text-decoration-color .15s; }
+.refs a:hover, .refs a:focus-visible { color: var(--blue); text-decoration-color: currentColor; }
+.meta { margin-top: 4px; font: 400 var(--t-sm)/1.45 var(--sans); color: var(--ink-2); }
+.meta b { font-weight: 600; color: var(--ink); }
+.j .jn { color: var(--ink); }
+
+/* contact: a short invitation and the three links, the hero's link style */
+.invite { margin-top: 14px; max-width: 34em; font: 400 var(--t-lead)/1.45 var(--serif); color: var(--ink-2); }
+#contact .links { margin-top: 18px; }
+footer p:first-child { max-width: none; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; color: var(--ink); }
+.totop { padding-block: 10px; margin-block: -10px; }
+
+footer { border-top: 1px solid var(--line); }
+footer p { max-width: 62ch; padding-block: 22px 28px; font-size: var(--t-sm); color: var(--ink-2); }
+
+@media (max-width: 999px) {
+  .txt { grid-column: 1 / span 8; }
+  .refs li { display: block; }
+}
+@media (max-width: 759px) {
+  body { font-size: 16px; }
+  .sec { padding-block: 48px 56px; }
+  .hero { grid-template-columns: minmax(0, 1fr); padding-top: 20px; }
+  .txt, .pic { grid-column: 1; }
+  .txt { padding-bottom: 24px; }
+  .pic { justify-self: start; width: 200px; margin-top: 0; }
+  .pic img { width: 100%; max-height: none; }
+  .legend { flex-wrap: wrap; gap: 4px 16px; }
+}
+/* phones: the portrait sits beside the name, and four section links fill the bar */
+@media (max-width: 559px) {
+  .top .name { display: none; }
+  .top nav { flex: 1; justify-content: space-between; gap: 2px; }
+  .top a { margin-inline: 0; padding-inline: 4px; }
+  .hero { grid-template-columns: minmax(0, 1fr) 88px; column-gap: 14px; }
+  .txt { grid-column: 1 / -1; grid-row: 1; }
+  .txt h1, .txt .role, .txt .creds { margin-right: 102px; }
+  @media (max-width: 379px) { .hero h1 { font-size: 36px; } } /* "(Katherine) Li" stays on one line beside the portrait */
+  .pic { grid-column: 2; grid-row: 1; width: 88px; }
+}
+@media (max-width: 479px) { .txt .creds { margin-right: 0; } } /* the creds run under the portrait, which ends above them */
+@media (max-width: 359px) { .top a { font-size: 14px; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position: absolute" aria-hidden="true">
+  <!-- cohort shapes from team/research-world, radius about 4 around 0,0; the cohort map draws the same paths -->
+  <symbol id="g-aric" viewBox="-6 -6 12 12"><path d="M4 0A4 4 0 1 1-4 0A4 4 0 1 1 4 0Z"/></symbol>
+  <symbol id="g-chs" viewBox="-6 -6 12 12"><path d="M-3.5-3.5H3.5V3.5H-3.5Z"/></symbol>
+  <symbol id="g-mesa" viewBox="-6 -6 12 12"><path d="M0-5.2L4.5 2.6H-4.5Z"/></symbol>
+  <symbol id="g-sccs" viewBox="0 0 12 12"><circle cx="2" cy="2" r="1.4"/><circle cx="6" cy="2" r="1.4"/><circle cx="10" cy="2" r="1.4"/><circle cx="2" cy="6" r="1.4"/><circle cx="6" cy="6" r="1.4"/><circle cx="10" cy="6" r="1.4"/><circle cx="2" cy="10" r="1.4"/><circle cx="6" cy="10" r="1.4"/><circle cx="10" cy="10" r="1.4"/></symbol>
+  <symbol id="g-hunt" viewBox="-6 -6 12 12"><path d="M0-5L5 0L0 5L-5 0Z"/></symbol>
+  <symbol id="g-ukb" viewBox="-6 -6 12 12"><path d="M3.81 2.2L0 4.4L-3.81 2.2V-2.2L0-4.4L3.81-2.2Z"/></symbol>
+  <symbol id="g-hub" viewBox="-7 -7 14 14"><circle r="5.3" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="name" href="#top">Aixin (Katherine) Li</a>
+    <nav aria-label="Page"><a href="#top">Home</a><a href="path.html">About me</a><a href="#work">Work</a><a href="#papers">Papers</a><a href="#contact">Contact</a></nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero wrap" id="top">
+    <div class="txt">
+      <h1>Aixin (Katherine) Li</h1>
+      <p class="role">Bioinformatics Scientist at Labcorp</p>
+      <p class="creds">MBBS · MPH in Epidemiology &amp; Biostatistics<br>Ph.D. in Epidemiology <span class="nw">(Minors in Biostatistics &amp; Data Science)</span></p>
+      <p class="words ctx">We spend years conducting research and publishing papers, yet translating scientific discoveries into clinical practice remains a&nbsp;challenge.</p>
+      <p class="words">Bridging the gap between discovery and patient care is what motivates&nbsp;me.</p>
+      <p class="aboutme"><a href="path.html">More about me<span aria-hidden="true">→</span></a></p>
+    </div>
+    <figure class="pic"><img src="portrait-stipple.webp" width="1122" height="1402" alt="Portrait of Aixin (Katherine) Li, drawn in dots" fetchpriority="high"></figure>
+  </section>
+
+  <!-- Katherine 2026-11-25: three toggle titles over three stacked panels; a title shows its panel alone, its minus shows all three -->
+  <section class="sec band" id="work" aria-labelledby="work-h">
+    <div class="wrap">
+      <h2 id="work-h">What I work on</h2>
+      <div class="wk">
+        <div class="tabs">
+          <button type="button" class="tab" id="t-domain" aria-controls="p-domain" aria-pressed="false" aria-expanded="false"><span class="lab">Domain</span><span class="tn">Biomedical &amp; Clinical&nbsp;Sciences<i class="pm" aria-hidden="true"></i></span></button>
+          <button type="button" class="tab" id="t-methods" aria-controls="p-methods" aria-pressed="false" aria-expanded="false"><span class="lab">Methods</span><span class="tn">Statistical Genetics, <span class="nw">Multi-omics</span> &amp; Machine&nbsp;Learning<i class="pm" aria-hidden="true"></i></span></button>
+          <button type="button" class="tab" id="t-systems" aria-controls="p-systems" aria-pressed="false" aria-expanded="false"><span class="lab">Systems</span><span class="tn">Software &amp; AI&nbsp;Engineering<i class="pm" aria-hidden="true"></i></span></button>
+        </div>
+        <p class="vh" aria-live="polite"></p>
+
+        <div class="pn" role="region" id="p-domain" aria-labelledby="h-domain"><div class="pi">
+          <div class="ph"><p class="pt" id="h-domain" tabindex="-1"><span class="lab">Domain</span> Biomedical &amp; Clinical&nbsp;Sciences</p></div>
+          <div class="ar">
+            <div><h3>Clinical Medicine</h3><p>Medical training and clinical rotations across specialties, with foundations in disease mechanisms, diagnosis, and&nbsp;treatment.</p></div>
+            <div><h3>Molecular Biology &amp; <span class="nw">Multi-omics</span></h3><p>Human genetics, genomics, proteomics, molecular biomarkers, and disease&nbsp;biology.</p></div>
+            <div><h3>Clinical Genomics &amp; Precision Medicine</h3><p>Genetic testing, molecular diagnostics, genomic variant detection, and clinical&nbsp;applications.</p></div>
+            <div><h3>Population &amp; Translational Health</h3><p>Disease etiology, cardiovascular disease, infectious diseases, biomarker discovery, and&nbsp;prevention.</p></div>
+          </div>
+        </div></div>
+
+        <div class="pn" role="region" id="p-methods" aria-labelledby="h-methods"><div class="pi">
+          <div class="ph"><p class="pt" id="h-methods" tabindex="-1"><span class="lab">Methods</span> Statistical Genetics, <span class="nw">Multi-omics</span> &amp; Machine&nbsp;Learning</p><p class="sum">Human genetics, causal inference, and statistical learning across international population cohorts.</p></div>
+          <div class="hl">
+            <div class="fund"><p class="pa">Primary analyst on NIH-funded research</p><div class="st"><p><b class="fig">$6.6M</b><span>Combined NIH funding</span></p><p><b class="fig">3</b><span>NIH-funded projects</span></p><p><b class="fig">6</b><span>International cohorts</span></p></div><small>NIH grants: R01HL059367&nbsp;·&nbsp;R01HL155209&nbsp;·&nbsp;R21AG072530</small></div>
+            <p><b class="fig"><i>Circulation</i></b><small>Equal co-first author, 2026<br>Impact&nbsp;factor&nbsp;41.3&nbsp;· <a href="https://doi.org/10.1161/CIRCULATIONAHA.125.074493" aria-label="Publication: the co-first-author paper in Circulation, 2026">Publication<i aria-hidden="true">&nbsp;↗</i></a></small></p>
+          </div>
+          <div class="ar">
+            <div><h3>Statistical Genetics &amp; Computational Genomics</h3><p>Large-scale genetic association analyses, polygenic risk modeling, and molecular QTL&nbsp;analysis.</p><p class="kw">GWAS&nbsp;· Rare&nbsp;Variants&nbsp;· <span class="nw">PRS-CS</span>&nbsp;· pQTL/eQTL&nbsp;· PLINK&nbsp;· GCTA&nbsp;· SAIGE&nbsp;· <span class="nw">SKAT-O</span>&nbsp;· Linux/Unix</p></div>
+            <div><h3>Multi-omics &amp; Causal Inference</h3><p>Lead multi-cohort analyses integrating genetic, proteomic, and clinical data for biomarker discovery and causal&nbsp;investigation.</p><p class="kw">SomaScan&nbsp;· Olink&nbsp;· Mendelian&nbsp;Randomization&nbsp;· <span class="nw">Meta-analysis</span>&nbsp;· Data&nbsp;Harmonization&nbsp;· Bayesian&nbsp;Analysis&nbsp;· SQL</p></div>
+            <div><h3>Biostatistics &amp; Machine Learning</h3><p>Lead international collaborations in disease risk prediction, model development, and external validation across diverse&nbsp;populations.</p><p class="kw"><span class="nw">High-dimensional Modeling</span>&nbsp;· Survival&nbsp;Analysis&nbsp;· Statistical&nbsp;Learning&nbsp;· External&nbsp;Validation&nbsp;· R&nbsp;· Python&nbsp;· SAS</p></div>
+          </div>
+          <figure class="world">
+            <figcaption><b>Six cohorts in three countries.</b></figcaption>
+            <div class="stack" role="img" aria-label="Map of the United States, the United Kingdom and Norway, with lines from the University of Minnesota to the places where the six cohorts recruited."><canvas></canvas><canvas></canvas><p class="tip" hidden></p></div>
+            <ul class="legend">
+              <li><button type="button" data-k="aric" aria-pressed="false"><svg class="g" aria-hidden="true"><use href="#g-aric"/></svg>ARIC<span class="vh">, Atherosclerosis Risk in Communities, United States</span></button></li>
+              <li><button type="button" data-k="chs" aria-pressed="false"><svg class="g" aria-hidden="true"><use href="#g-chs"/></svg>CHS<span class="vh">, Cardiovascular Health Study, United States</span></button></li>
+              <li><button type="button" data-k="mesa" aria-pressed="false"><svg class="g" aria-hidden="true"><use href="#g-mesa"/></svg>MESA<span class="vh">, Multi-Ethnic Study of Atherosclerosis, United States</span></button></li>
+              <li><button type="button" data-k="sccs" aria-pressed="false"><svg class="g area" aria-hidden="true"><use href="#g-sccs"/></svg>SCCS<span class="vh">, Southern Community Cohort Study, United States</span></button></li>
+              <li><button type="button" data-k="hunt" aria-pressed="false"><svg class="g" aria-hidden="true"><use href="#g-hunt"/></svg>HUNT<span class="vh">, Trøndelag Health Study, Norway</span></button></li>
+              <li><button type="button" data-k="ukb" aria-pressed="false"><svg class="g" aria-hidden="true"><use href="#g-ukb"/></svg>UK Biobank<span class="vh">, United Kingdom</span></button></li>
+              <li class="hub" aria-hidden="true"><svg class="g" style="color: inherit"><use href="#g-hub"/></svg>University of Minnesota</li>
+            </ul>
+          </figure>
+        </div></div>
+
+        <div class="pn" role="region" id="p-systems" aria-labelledby="h-systems"><div class="pi">
+          <div class="ph"><p class="pt" id="h-systems" tabindex="-1"><span class="lab">Systems</span> Software &amp; AI&nbsp;Engineering</p><p class="sum">Full-stack development, agentic AI, clinical ML pipelines, and MLOps.</p></div>
+          <div class="ar">
+            <div><h3>Full-Stack Development &amp; Agentic AI</h3><p>Lead end-to-end development of a genomic reference-data platform and a tool-calling LLM agent for internal users, covering database design, backend APIs, frontend development, and AWS cloud&nbsp;infrastructure.</p><p class="kw">TypeScript&nbsp;· Node.js&nbsp;· PostgreSQL&nbsp;· LLM&nbsp;Tool&nbsp;Calling&nbsp;· Serverless&nbsp;Architecture</p></div>
+            <div><h3>Machine Learning Engineering &amp; MLOps</h3><p>Lead the development and maintenance of clinical ML and deep learning pipelines across testing sites, from <span class="nw">GPU-based</span> model training and benchmarking to automated cloud workflows.</p><p class="kw">Python&nbsp;· PyTorch&nbsp;· TensorFlow&nbsp;· AWS&nbsp;Batch&nbsp;· SageMaker&nbsp;Pipelines&nbsp;· GPU&nbsp;Computing</p></div>
+            <div><h3>Clinical Bioinformatics</h3><p>Develop and maintain clinical bioinformatics pipelines for variant detection, CNV analysis, sequencing quality control, and assay-specific computational methods.</p><p class="kw">NGS&nbsp;· DeepVariant&nbsp;· Sanger&nbsp;Confirmation&nbsp;ML&nbsp;· NVIDIA&nbsp;Parabricks&nbsp;· Variant&nbsp;Calling</p></div>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="papers" aria-labelledby="papers-h">
+    <div class="wrap">
+      <h2 id="papers-h">Papers and honors</h2>
+      <h3 class="lab">Papers</h3>
+      <ol class="refs">
+        <li><div><a href="https://doi.org/10.1161/CIRCULATIONAHA.125.074493">Novel Plasma Proteomic Markers and Risk of Venous Thromboembolism</a><p class="meta">Tang W, <b>Li A*</b><span class="vh"> (equal co-first author)</span>, Austin TR, et al.</p></div><p class="meta j"><span class="jn">Circulation</span> 2026</p></li>
+        <li><div><a href="https://doi.org/10.1111/jcmm.71047">Plasma Proteome Signature for Leukocyte Telomere Length and Its Link to Abdominal Aortic Aneurysm</a><p class="meta"><b>Li A</b>, Austin TR, Steffen BT, et al.</p></div><p class="meta j"><span class="jn">J Cell Mol Med</span> 2026</p></li>
+        <li><div><a href="https://doi.org/10.1016/j.jtha.2026.02.005">Long-term mortality and causes of death after venous thromboembolism: findings from the Atherosclerosis Risk in Communities Cohort Study</a><p class="meta">Kamin Mukaz D, <b>Li A</b>, Guan W, et al.</p></div><p class="meta j"><span class="jn">J Thromb Haemost</span> 2026</p></li>
+        <li><div><a href="https://doi.org/10.1111/acel.70317">A Novel Longitudinal Proteomic Aging Index Predicts Mortality, Multimorbidity, and Frailty in Older Adults</a><p class="meta">Rao Z, Wang S, <b>Li A</b>, et al.</p></div><p class="meta j"><span class="jn">Aging Cell</span> 2026</p></li>
+        <li><div><a href="https://doi.org/10.3389/fnut.2026.1720975">Plasma pentadecanoic acid is modestly related to cardiovascular health in CARDIA and ARIC cohorts: observational associations without evidence of causality</a><p class="meta">Steffen BT, Jacobs DR Jr, <b>Li A</b>, et al.</p></div><p class="meta j"><span class="jn">Front Nutr</span> 2026</p></li>
+        <li><div><a href="https://doi.org/10.1161/ATVBAHA.122.317984">Proteomics Analysis of Genetic Liability of Abdominal Aortic Aneurysm Identifies Plasma Neogenin and Kit Ligand: The&nbsp;ARIC&nbsp;Study</a><p class="meta">Steffen BT, …, <b>Li A</b>, et al.</p></div><p class="meta j"><span class="jn">Arterioscler Thromb Vasc Biol</span> 2023</p></li>
+        <li><div><a href="https://doi.org/10.1158/1055-9965.EPI-24-0755">CYP2D6 Phenotype and Breast Cancer Outcomes: A Bias Analysis and&nbsp;Meta-Analysis</a><p class="meta">MacLehose RF, Ahern TP, Collin LJ, <b>Li A</b>, Lash TL.</p></div><p class="meta j"><span class="jn">Cancer Epidemiol Biomarkers Prev</span> 2025</p></li>
+        <li><div><a href="https://doi.org/10.1371/journal.pcbi.1012927">Putting computational models of immunity to the test: An invited challenge to predict B.pertussis vaccination responses</a><p class="meta">Shinde P, …, <b>Li A</b>, et al.</p></div><p class="meta j"><span class="jn">PLoS Comput Biol</span> 2025</p></li>
+      </ol>
+      <h3 class="lab">Honors</h3>
+      <ul class="refs">
+        <li><div><p class="t">Early Career Investigator Award, CHARGE Consortium</p><p class="meta">Selected for the Poster Blitz and invited to present at the Hemostasis Working&nbsp;Group.</p></div><p class="meta j">October 2025</p></li>
+        <li><div><p class="t">1st place group, CMI-PB Challenge</p><p class="meta">Computational Models of Immunity, Pertussis Boost</p></div><p class="meta j">January 2024</p></li>
+        <li><div><p class="t">Oral presentation, American Heart Association Scientific Sessions</p><p class="meta">“Multi-Omics Integration of Clinical Risk Factors, Polygenic Risk Score, and Proteomics to Predict Abdominal Aortic Aneurysm: A Multicohort Analysis.”</p></div><p class="meta j">November 2024</p></li>
+        <li><div><p class="t">Oral and top-scoring presentation, American&nbsp;Heart&nbsp;Association <span class="nw">EPI | Lifestyle Scientific Sessions</span></p><p class="meta">“Associations Between the Plasma Proteome and a Polygenic Risk Score for Venous Thromboembolism: The Atherosclerosis Risk in Communities Study.”</p></div><p class="meta j">March 2024</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <h2 id="contact-h">Contact</h2>
+      <p class="invite">Thank you for stopping by. Feel free to reach out.</p>
+      <p class="links"><a href="mailto:li.aixin0723@gmail.com">li.aixin0723@gmail.com</a><a href="https://www.linkedin.com/in/aixin-li-40a0621b9/">LinkedIn</a><a href="https://scholar.google.com/citations?user=E-013v8AAAAJ">Google&nbsp;Scholar</a><a href="Aixin_Li_CV.pdf">CV (PDF)</a></p>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><p>© 2026 Aixin (Katherine) Li<a class="totop" href="#top">Back to top <span aria-hidden="true">↑</span></a></p></div></footer>
+
+<script>
+// Shared by both maps: one motion state (reduced motion or forced colors, and the pause, so one press stops both) and the
+// current, the coral to rose Sheen from team/research-world.
+const Motion = (() => {
+  const root = document.documentElement, subs = [], q = matchMedia('(prefers-reduced-motion: reduce), (forced-colors: active)');
+  const m = { paused: false, quiet: q.matches, on: (f) => subs.push(f) };
+  function sync() {
+    root.classList.toggle('quiet', m.quiet); root.classList.toggle('paused', m.paused);
+    document.querySelectorAll('.pause').forEach((b) => b.setAttribute('aria-pressed', m.paused));
+    subs.forEach((f) => f());
+  }
+  q.addEventListener('change', () => { m.quiet = q.matches; sync(); });
+  document.addEventListener('click', (e) => { if (e.target.closest('.pause')) { m.paused = !m.paused; sync(); } });
+  sync();
+  return m;
+})();
+
+const Cur = (() => {
+  const sm = (x) => { const u = x < 0 ? 0 : x > 1 ? 1 : x; return u * u * (3 - 2 * u); };
+  const mix = (a, b, f) => a.map((x, i) => Math.round(x + (b[i] - x) * f));
+  const rgba = (c, a) => 'rgba(' + c.join(',') + ',' + (a < 0.001 ? 0 : Math.min(1, a).toFixed(3)) + ')';
+  const ramp = (S, x) => { let j = 1; while (j < S.length - 1 && S[j][0] < x) j++; const [qa, ca] = S[j - 1], [qb, cb] = S[j]; return mix(ca, cb, Math.max(0, Math.min(1, (x - qa) / (qb - qa)))); };
+  const probe = document.createElement('canvas').getContext('2d', { willReadFrequently: true });
+  function rgb(name) { // any colour syntax: paint one pixel and read it back
+    probe.fillStyle = '#000'; probe.fillStyle = getComputedStyle(document.documentElement).getPropertyValue(name).trim() || '#000';
+    probe.clearRect(0, 0, 1, 1); probe.fillRect(0, 0, 1, 1); return [...probe.getImageData(0, 0, 1, 1).data.slice(0, 3)];
+  }
+  function palette() { // a core of --bg, the head in --coral, the body in --blue, over a pale --blue track
+    const [bg, ink, accent, a2, land] = ['--bg', '--ink', '--blue', '--coral', '--land'].map(rgb);
+    return { bg, ink, site: accent, a2, land, BG: rgba(bg, 1), INK: rgba(ink, 1), LAND: rgba(land, 1), A2: rgba(a2, 1), TRACK: rgba(accent, 1),
+      body: [[0, a2], [0.18, mix(a2, accent, 0.5)], [0.45, accent], [1, accent]], core: [[0, bg], [12, bg], [26, mix(bg, a2, 0.45)], [48, a2]] };
+  }
+  const bez = (k, u) => [0, 1].map((i) => (1 - u) * (1 - u) * k.a[i] + 2 * (1 - u) * u * k.c[i] + u * u * k.b[i]);
+  function arc(a, c, b) { // a quadratic from a to b through control c, with its length, path and 41 sample points
+    const k = { a, b, c, L: 0, p: new Path2D() };
+    for (let i = 1, q = a; i <= 32; i++) { const e = bez(k, i / 32); k.L += Math.hypot(e[0] - q[0], e[1] - q[1]); q = e; }
+    k.p.moveTo(a[0], a[1]); k.p.quadraticCurveTo(c[0], c[1], b[0], b[1]); k.pts = Array.from({ length: 41 }, (_, i) => bez(k, i / 40));
+    return k;
+  }
+  function part(k, u) { // the arc up to fraction u (de Casteljau)
+    const p = new Path2D(), qx = k.a[0] + (k.c[0] - k.a[0]) * u, qy = k.a[1] + (k.c[1] - k.a[1]) * u;
+    p.moveTo(k.a[0], k.a[1]); p.quadraticCurveTo(qx, qy, qx + (k.c[0] + (k.b[0] - k.c[0]) * u - qx) * u, qy + (k.c[1] + (k.b[1] - k.c[1]) * u - qy) * u);
+    return p;
+  }
+  // one sweep on one arc, its head h px along it, body px long. By distance behind the head the body runs --coral to --blue and
+  // fades out; a --coral sheen covers its first 40% and a 1.2 px core is --bg for 12 px. open: the far end fades over 24 px
+  const STOPS = [-3, -1.5, 0, 3, 6, 10, 14, 20, 26, 34, 42, 48, 60, 76, 96, 120, 150];
+  function band(ctx, C, k, h, body, al, open) {
+    const L = k.L;
+    const ds = STOPS.filter((d) => d < body).concat([body, h, h - L], open ? [h - L + 12, h - L + 24] : []).filter((d) => h - d >= 0 && h - d <= L).sort((x, y) => y - x);
+    if (ds.length < 2) return;
+    const G = () => ctx.createLinearGradient(k.a[0], k.a[1], k.b[0], k.b[1]), gb = G(), gh = G(), gc = G();
+    ds.forEach((d) => {
+      const o = (h - d) / L, f = al * (d < 0 ? 1 - sm(-d / 3) : 1) * (open ? sm((L - h + d) / 24) : 1), u = Math.max(0, d) / body;
+      gb.addColorStop(o, rgba(ramp(C.body, u), f * (1 - sm((u - 0.5) * 2))));
+      gh.addColorStop(o, rgba(C.a2, f * (1 - sm(u / 0.4))));
+      gc.addColorStop(o, rgba(ramp(C.core, Math.max(0, d)), f * 0.85 * (1 - sm((d - 24) / 24))));
+    });
+    ctx.lineCap = 'butt';
+    ctx.lineWidth = 2.4; ctx.strokeStyle = gb; ctx.stroke(k.p);
+    ctx.save(); ctx.translate(-0.4, -0.4); // the sheen and the core sit on the lit side
+    ctx.lineWidth = 1.6; ctx.strokeStyle = gh; ctx.stroke(k.p);
+    ctx.lineWidth = 1.2; ctx.strokeStyle = gc; ctx.stroke(k.p);
+    ctx.restore();
+  }
+  return { sm, mix, rgba, palette, arc, part, band };
+})();
+
+// Methods: the cohort map from team/research-world, all six cohorts at once. Two copies share one fetch: a still preview in
+// the column and the Methods map, whose links draw out from the University of Minnesota once, the first time it scrolls into
+// view, then rest still (Katherine 2026-11-24). The Methods map names a cohort and its country on hover, click or keyboard focus
+const COHORT_DATA = Promise.all([fetch('data/sites.json'), fetch('data/land.json')].map((p) => p.then((r) => { if (!r.ok) throw new Error(r.url + ' ' + r.status); return r.json(); })));
+const COUNTRY = { aric: 'United States', chs: 'United States', mesa: 'United States', sccs: 'United States', hunt: 'Norway', ukb: 'United Kingdom' };
+function cohortMap(stack, preview) {
+  const [cvLand, cvLive] = stack.querySelectorAll('canvas'), fig = stack.closest('.world');
+  const { sm, mix, rgba, arc, part, band } = Cur, TAU = 2 * Math.PI;
+  const HUB = [-93.27, 44.98]; // the University of Minnesota
+  const VIEW = [-126, 17, 66.5, 23.5, 1.3]; // west, east, north, south, north to south stretch; .stack's aspect-ratio is 143 / (43 * 1.3)
+  const BODY = 1.2, PACE = 0.155, TRIP = 2.4, BOW = 0.18, CLUSTER = 5, GLOW = 0.3; // links run at PACE map widths per s, the band BODY s long; a long link speeds up to land within TRIP s, so HUNT and UK Biobank show with the rest
+  const meet = (a, b) => a[0] < b[2] && a[2] > b[0] && a[1] < b[3] && a[3] > b[1];
+  let C = null, names = {};
+  const SHAPE = {};
+  ['aric', 'chs', 'mesa', 'hunt', 'ukb'].forEach((k) => { SHAPE[k] = new Path2D(document.querySelector('#g-' + k + ' path').getAttribute('d')); });
+
+  let landAt = () => false, sccsAt = () => false, sccsMid = [0, 0];
+  function masks(m) { // land.json: boxes of lon/lat cells, finest first
+    const one = ({ lon0, lat1, d, w, h, bits }) => {
+      const b = Uint8Array.from(atob(bits), (c) => c.charCodeAt(0));
+      return (lon, lat) => { const i = Math.floor((lon - lon0) / d), j = Math.floor((lat1 - lat) / d); if (i < 0 || j < 0 || i >= w || j >= h) return -1; const n = j * w + i; return (b[n >> 3] >> (7 - (n & 7))) & 1; };
+    };
+    const eu = one(m.eu), na = one(m.na), world = one(m.world), south = one(m.sccs);
+    landAt = (lon, lat) => { let v = eu(lon, lat); if (v < 0) v = na(lon, lat); if (v < 0) v = world(lon, lat); return v === 1; };
+    sccsAt = (lon, lat) => south(lon, lat) === 1;
+    const s = m.sccs; let n = 0, sx = 0, sy = 0; // the centre of the SCCS cells, where its link lands
+    for (let j = 0; j < s.h; j++) for (let i = 0; i < s.w; i++) { const lon = s.lon0 + (i + 0.5) * s.d, lat = s.lat1 - (j + 0.5) * s.d; if (sccsAt(lon, lat)) { sx += lon; sy += lat; n++; } }
+    sccsMid = [sx / n, sy / n];
+  }
+
+  // one node per place: a site joins another cohort's site within 1.2 degrees. UK Biobank and HUNT, whose sites sit close
+  // together, get one link to their middle and the light spreads to each site from there
+  let nodes = [], area = null;
+  function build(data) {
+    nodes = [{ lon: HUB[0], lat: HUB[1], keys: [], hub: true }];
+    data.cohorts.forEach((c) => {
+      names[c.key] = c;
+      if (!c.sites) { nodes.push((area = { lon: sccsMid[0], lat: sccsMid[1], keys: [c.key], area: true })); return; }
+      c.sites.forEach((s) => {
+        if (s.lat == null) return; // HUNT's county entry has no point
+        let n = nodes.find((o) => !o.area && !o.keys.includes(c.key) && Math.hypot((o.lon - s.lon) * Math.cos(s.lat * Math.PI / 180), o.lat - s.lat) < 1.2);
+        if (!n) nodes.push((n = { lon: s.lon, lat: s.lat, keys: [] }));
+        n.keys.push(c.key);
+      });
+    });
+    data.cohorts.forEach(({ key }) => {
+      const ns = nodes.filter((n) => !n.area && n.keys.includes(key));
+      if (ns.length < 2 || ns.some((n) => n.keys.length > 1)) return;
+      const lon = ns.reduce((a, n) => a + n.lon, 0) / ns.length, lat = ns.reduce((a, n) => a + n.lat, 0) / ns.length;
+      if (ns.some((n) => Math.hypot((n.lon - lon) * Math.cos(lat * Math.PI / 180), n.lat - lat) > CLUSTER)) return;
+      const mid = { lon, lat, keys: [key], land: true }; nodes.push(mid); ns.forEach((n) => { n.via = mid; });
+    });
+  }
+
+  let W = 0, H = 0, sc = 1, K = 1, lon0 = 0, lat1 = 0, P = 6, r0 = 4, big = true, dots = [], VR = 300, VC = 100, lv = [], label = null, END = 0;
+  const X = (lon) => (lon - lon0) * sc, Y = (lat) => (lat1 - lat) * sc * K;
+  function arcOf(a, b) { // bowed north
+    const dx = b[0] - a[0], dy = b[1] - a[1], len = Math.hypot(dx, dy); let nx = dy / len, ny = -dx / len; if (ny > 0) { nx = -nx; ny = -ny; }
+    return arc(a, [(a[0] + b[0]) / 2 + nx * BOW * len, (a[1] + b[1]) / 2 + ny * BOW * len], b);
+  }
+  function layout() {
+    const w = stack.clientWidth; if (!w || !nodes.length) return;
+    big = w >= 600; const [we, ea, no, so, k] = VIEW;
+    W = w; sc = W / (ea - we); K = k; lon0 = we; lat1 = no; H = stack.clientHeight;
+    const d = Math.min(3, devicePixelRatio || 1);
+    [cvLand, cvLive].forEach((cv) => { cv.width = Math.round(W * d); cv.height = Math.round(H * d); cv.getContext('2d').setTransform(d, 0, 0, d, 0, 0); });
+    P = big ? Math.max(5.4, W / 214) : 4; r0 = big ? 4.3 : 3.6; VR = 0.22 * W; VC = 0.08 * W; // px/s the light spreads through SCCS, and through a cluster
+    C = Cur.palette(); const sccs = mix(C.land, C.site, 0.62); // 3:1 on --tint even at the resting glow
+    lv = Array.from({ length: 8 }, (_, i) => rgba(mix(sccs, C.a2, 0.7 * i / 7), 1)); // the SCCS dots from rest to full shine
+    nodes.forEach((n) => { n.x = X(n.lon); n.y = Y(n.lat); });
+    nodes.forEach((n) => { if (n.hub) { n.D = 0; return; } if (n.via) return; n.arc = arcOf([nodes[0].x, nodes[0].y], [n.x, n.y]); n.arc.open = !!(n.area || n.land); n.v = Math.max(PACE * W, n.arc.L / TRIP); n.D = n.arc.L / n.v; });
+    nodes.forEach((n) => { if (n.via) n.D = n.via.D + Math.hypot(n.x - n.via.x, n.y - n.via.y) / VC; });
+    drawLand();
+    END = Math.max(...nodes.map((n) => n.D + (n.area ? Math.max(...dots.map((q) => q.far), 0) / VR : 0))) + BODY + 1; // the last band has left and the last mark has settled
+    place(); render(); kick();
+  }
+  function drawLand() { // the dotted land, once per layout; the SCCS states go to the live canvas
+    const ctx = cvLand.getContext('2d'), p = new Path2D(), r = 0.3 * P;
+    ctx.clearRect(0, 0, W, H); dots = [];
+    for (let y = P / 2; y < H; y += P) for (let x = P / 2; x < W; x += P) {
+      const lon = lon0 + x / sc, lat = lat1 - y / (sc * K); if (!landAt(lon, lat)) continue;
+      if (sccsAt(lon, lat)) { dots.push({ x, y, far: Math.hypot(x - area.x, y - area.y) }); continue; }
+      p.moveTo(x + r, y); p.arc(x, y, r, 0, TAU);
+    }
+    ctx.fillStyle = C.LAND; ctx.fill(p);
+  }
+
+  // t: s since the draw began. Before the first open nothing is drawn but the land; still (the preview, reduced motion) is the end
+  let t = 0, fade = 0, began = false, hi = null;
+  const still = () => preview || Motion.quiet;
+  const since = (n) => (still() ? 1e9 : began ? t - n.D : -1); // s since the sweep reached n
+  const pop = (a) => (a < 0 ? 0 : sm(a / 0.8)); // a mark eases in once as the sweep reaches it, no overshoot
+
+  function drawArea(ctx) { // the SCCS states: lit outward from where the link lands, then held at one even glow
+    if (!area || !dots.length) return;
+    const tA = since(area), rs = 0.3 * P * 1.15, B = lv.map(() => new Path2D()), top = lv.length - 1;
+    dots.forEach((d) => {
+      const on = tA - d.far / VR; if (on < 0) return;
+      const I = GLOW * fade * pop(on), R = rs * pop(on), p = B[Math.round(I * top)];
+      p.moveTo(d.x + R, d.y); p.arc(d.x, d.y, R, 0, TAU);
+    });
+    B.forEach((p, i) => { ctx.fillStyle = lv[i]; ctx.fill(p); });
+  }
+  function drawTracks(ctx) { // the pale tracks: drawn by the sweep as it goes, then always there, in one stroke
+    const p = new Path2D();
+    nodes.forEach((n) => { if (!n.arc) return; const u = still() ? 1 : began ? Math.min(1, (n.v * t) / n.arc.L) : 0; if (u > 0) p.addPath(u < 1 ? part(n.arc, u) : n.arc.p); });
+    ctx.lineWidth = big ? 1.2 : 1; ctx.strokeStyle = C.TRACK; ctx.globalAlpha = 0.3; ctx.stroke(p); ctx.globalAlpha = 1;
+  }
+  function drawBands(ctx) { // the one sweep, on every link at once
+    if (still() || !began) return;
+    nodes.forEach((n) => { if (n.arc && t <= n.D + BODY + 0.05) band(ctx, C, n.arc, n.v * t, BODY * n.v, fade, n.arc.open); });
+  }
+  function row(n) { // a node's marks side by side; a cluster's are a fifth smaller
+    const r = r0 * (n.via ? 0.8 : 1), span = n.keys.length * 2 * r + 2 * (n.keys.length - 1);
+    return { hw: span / 2, hh: r, parts: n.keys.map((k, i) => [k, n.x - span / 2 + r + i * (2 * r + 2), r, i]) };
+  }
+  function halo(ctx, x, y, r, I) { // a soft, even halo in --coral behind the mark
+    if (I < 0.02) return;
+    ctx.fillStyle = C.A2; ctx.globalAlpha = 0.24 * I; ctx.beginPath(); ctx.arc(x, y, r * (1.5 + 1.3 * I), 0, TAU); ctx.fill(); ctx.globalAlpha = 1;
+  }
+  function drawMarks(ctx) {
+    const kept = []; // a cluster's mark within 1.2 r of one of its own cohort already placed is not drawn; hit() still finds every site
+    const rows = nodes.filter((n) => !n.area && !n.land).map((n) => {
+      const rw = row(n);
+      if (n.via) rw.parts = rw.parts.filter(([k, x, r]) => !kept.some(([k2, x2, y2]) => k2 === k && Math.hypot(x2 - x, y2 - n.y) < 1.2 * r) && kept.push([k, x, n.y]));
+      return [n, rw, pop(since(n))];
+    });
+    const I = GLOW * fade; // the same steady glow on every site
+    rows.forEach(([n, rw, s]) => rw.parts.forEach(([, x, r]) => halo(ctx, x, n.y, r * s, I * s)));
+    rows.forEach(([n, rw, s]) => {
+      if (n.hub) { ctx.beginPath(); ctx.arc(n.x, n.y, Math.max(rw.hw, rw.hh) + 4, 0, TAU); ctx.fillStyle = C.BG; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = C.INK; ctx.stroke(); }
+      rw.parts.forEach(([k, x, r]) => {
+        const R = r * s; if (R < 0.3) return;
+        const R2 = R * (1 + 0.14 * I);
+        if (k === hi) { ctx.beginPath(); ctx.arc(x, n.y, R2 + 4, 0, TAU); ctx.lineWidth = 1.5; ctx.strokeStyle = C.INK; ctx.stroke(); } // the cohort named in the tip
+        ctx.save(); ctx.translate(x, n.y); ctx.scale(R2 / 4, R2 / 4);
+        ctx.lineWidth = (big ? 2.4 : 1.8) * 4 / R2; ctx.lineJoin = 'round'; ctx.strokeStyle = C.BG; ctx.stroke(SHAPE[k]);
+        ctx.fillStyle = rgba(mix(C.site, C.a2, 0.55 * I), 1); ctx.fill(SHAPE[k]); ctx.restore();
+      });
+    });
+  }
+
+  // one label, the hub's, beside its mark where it meets no other mark and crosses the fewest links. Small maps carry none
+  const FONT = '500 15px "Inter Tight", system-ui, sans-serif';
+  function place() {
+    label = null; if (!big) return;
+    const ctx = cvLive.getContext('2d'), text = 'University of Minnesota';
+    const boxOf = (n) => { const { hw, hh } = row(n), e = n.hub ? 4 : 0; return [n.x - hw - e - 3, n.y - hh - e - 3, n.x + hw + e + 3, n.y + hh + e + 3]; };
+    const marks = nodes.filter((n) => !n.area && !n.land).map(boxOf), pts = nodes.flatMap((n) => (n.arc ? n.arc.pts : [])), b = boxOf(nodes[0]);
+    ctx.font = FONT;
+    const w = ctx.measureText(text).width, cx = (b[0] + b[2]) / 2, cy = (b[1] + b[3]) / 2;
+    const cand = [5, 16].flatMap((g) => [[b[2] + g, cy], [b[0] - g - w, cy], [cx - w / 2, b[1] - g - 9], [cx - w / 2, b[3] + g + 9]]);
+    let fewest = Infinity;
+    cand.forEach(([x, y], i) => {
+      const box = [x - 3, y - 10, x + w + 3, y + 10];
+      if (box[0] < 4 || box[1] < 4 || box[2] > W - 4 || box[3] > H - 4 || marks.some((m) => meet(box, m))) return;
+      const hits = pts.reduce((s, p) => s + (p[0] > box[0] && p[0] < box[2] && p[1] > box[1] && p[1] < box[3]), 0) + 3 * i; // beside the mark first
+      if (hits < fewest) { label = { text, x, y }; fewest = hits; }
+    });
+  }
+
+  function render() {
+    if (!W || !C) return;
+    const ctx = cvLive.getContext('2d');
+    ctx.clearRect(0, 0, W, H);
+    drawArea(ctx); drawTracks(ctx); drawBands(ctx); drawMarks(ctx);
+    if (label) { ctx.font = FONT; ctx.textBaseline = 'middle'; ctx.textAlign = 'left'; ctx.lineJoin = 'round'; ctx.lineWidth = 4; ctx.strokeStyle = C.BG; ctx.fillStyle = C.INK; ctx.strokeText(label.text, label.x, label.y); ctx.fillText(label.text, label.x, label.y); }
+  }
+
+  let raf = 0, last = 0;
+  let seen = true; // false while the map is off screen, so the draw waits
+  const live = () => began && seen && !still() && !document.hidden && t < END;
+  function loop(now) {
+    raf = 0; const dt = Math.min(0.05, (now - (last || now)) / 1000); last = now;
+    t += dt; fade = Math.min(1, fade + dt / 0.8);
+    render();
+    if (live()) raf = requestAnimationFrame(loop); else { last = 0; if (t >= END) render(); }
+  }
+  const kick = () => { if (!raf && live()) raf = requestAnimationFrame(loop); };
+  function replay() { began = true; t = 0; fade = 0; render(); kick(); } // called the first time the map scrolls into view
+  function view(v) { seen = v; kick(); }
+
+  // the tip: the cohort under the pointer, or the one whose name has focus or was clicked (pinned until clicked again)
+  const tip = stack.querySelector('.tip'), keys = fig.querySelectorAll('.legend button');
+  let pinned = null, pinKey = false; // pinKey: pinned from the legend
+  const wide = matchMedia('(min-width: 760px)');
+  function at(k) { // where the tip points for cohort k: its link's far end (a cluster's middle, the SCCS centre) or its one site
+    const n = nodes.find((o) => (o.area || o.land) && o.keys[0] === k) || nodes.find((o) => !o.area && !o.land && o.keys.includes(k));
+    if (!n) return null;
+    const part = !n.area && !n.land && row(n).parts.find((p) => p[0] === k);
+    return [part ? part[1] : n.x, n.y - (part ? part[2] : 0)];
+  }
+  function show(k, key) { // key: from the legend, so the tip sits clear of the marks it names
+    if (!k) { k = pinned; key = pinKey; } hi = k; render();
+    keys.forEach((b) => { b.classList.toggle('on', b.dataset.k === k); b.setAttribute('aria-pressed', b.dataset.k === pinned); });
+    const p = k && (key ? (wide.matches ? [0.55 * W, 0.9 * H] : [0, H]) : at(k)); // open Atlantic, or the map's bottom-left corner
+    if (!p) { tip.hidden = true; return; }
+    const c = names[k], full = c.full_name !== c.name ? c.full_name + ', ' : '';
+    tip.innerHTML = '<b></b>'; tip.firstChild.textContent = c.name; tip.append(full + COUNTRY[k]);
+    tip.hidden = false;
+    const half = tip.offsetWidth / 2; // kept inside the map
+    tip.style.left = Math.max(half, Math.min(W - half, p[0])) + 'px'; tip.style.top = Math.max(tip.offsetHeight + 12, p[1]) + 'px';
+  }
+  function hit(e) { // the cohort under the pointer: a mark within 10 px, or a dot of the SCCS states
+    const r = stack.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+    let best = null, d0 = 10;
+    nodes.forEach((n) => { if (n.area || n.land) return; row(n).parts.forEach(([k, px, rr]) => { const d = Math.hypot(px - x, n.y - y) - rr; if (k && d < d0) { d0 = d; best = k; } }); });
+    if (!best && dots.some((q) => Math.hypot(q.x - x, q.y - y) < P)) best = 'sccs';
+    return best;
+  }
+  if (!preview) {
+    stack.addEventListener('pointermove', (e) => { const k = hit(e); stack.classList.toggle('hit', !!k); if (k !== hi) show(k); });
+    stack.addEventListener('pointerleave', () => show(null));
+    stack.addEventListener('click', (e) => { const k = hit(e); pinned = k && k !== pinned ? k : null; pinKey = false; show(k); });
+    keys.forEach((b) => {
+      const k = b.dataset.k;
+      b.addEventListener('pointerenter', () => show(k, true)); b.addEventListener('focus', () => show(k, true));
+      b.addEventListener('pointerleave', () => show(null)); b.addEventListener('blur', () => show(null));
+      b.addEventListener('click', () => { pinned = pinned === k ? null : k; pinKey = true; show(k, true); });
+    });
+  }
+
+  COHORT_DATA.then(([sites, land]) => {
+    masks(land.masks); build(sites); Motion.on(() => { render(); kick(); });
+    let rt = 0; // on a window resize the canvases stretch for a moment and are drawn again at the new size 150 ms after it settles
+    new ResizeObserver(() => { clearTimeout(rt); rt = setTimeout(() => { if (stack.clientWidth && stack.clientWidth !== W) layout(); }, W ? 150 : 0); }).observe(stack);
+    document.addEventListener('visibilitychange', kick);
+  }).catch((err) => { console.error('[cohort-map]', err); fig.remove(); }); // the caption and legend go with it; the Path stop still names the three countries
+  return { replay, view };
+}
+const CohortMap = cohortMap(document.querySelector('.world .stack'), false);
+// the header link of the section in the middle of the screen, on scroll and after a panel toggle
+const navNow = (() => {
+  const links = [...document.querySelectorAll('.top nav a')], secs = links.filter((a) => a.hash).map((a) => document.querySelector(a.hash));
+  function now() {
+    const y = innerHeight * 0.475, s = secs.find((el) => { const r = el.getBoundingClientRect(); return r.top <= y && r.bottom > y; });
+    if (s) links.forEach((a) => (a.hash === '#' + s.id ? a.setAttribute('aria-current', 'location') : a.removeAttribute('aria-current')));
+  }
+  addEventListener('scroll', now, { passive: true }); addEventListener('resize', now); now();
+  return now;
+})();
+
+// What I work on: all three panels stacked, or one alone. A title shows its panel alone; its minus, Escape or a click outside
+// both the titles and the open panel shows all three. The page never moves: the clicked title, or on an exit the panel that
+// was open, keeps its place on screen, and only panels below it unfold
+(() => {
+  const wk = document.querySelector('.wk'), tabs = [...wk.querySelectorAll('.tab')], say = wk.querySelector('[aria-live]');
+  const pane = (t) => document.getElementById(t.getAttribute('aria-controls'));
+  let cur = null;
+  const de = document.documentElement, row = wk.querySelector('.tabs'), heads = tabs.map((t) => pane(t).querySelector('.pt'));
+  // the row is stuck once its place passes under the header; it goes slim and the first open panel takes the height it gave up.
+  // The area marked is the picked one, else the last whose heading has passed under the row
+  function mark() {
+    const s = wk.getBoundingClientRect().top <= parseFloat(getComputedStyle(row).top);
+    if (s !== wk.classList.contains('stuck')) {
+      const h = row.getBoundingClientRect().height;
+      wk.classList.toggle('stuck', s);
+      if (s) wk.style.setProperty('--dh', h - row.getBoundingClientRect().height + 'px');
+    }
+    const b = row.getBoundingClientRect().bottom, on = cur || tabs.findLast((t, i) => heads[i].getBoundingClientRect().top <= Math.max(b + 1, innerHeight * .4)); // an area lights up once its heading reaches the upper part of the screen, not only when it slides under the row
+    tabs.forEach((t) => t.setAttribute('aria-current', t === on));
+  }
+  addEventListener('scroll', mark, { passive: true });
+  addEventListener('resize', () => { wk.classList.remove('stuck'); mark(); }); // measure the full row again
+  function set(t, keep) { // keep: the element that holds its screen place, or null for no correction
+    de.style.scrollBehavior = 'auto'; scrollTo(0, scrollY); // stop a running smooth scroll before measuring
+    const y = keep && keep.getBoundingClientRect().top, was = tabs.map((b) => !pane(b).hidden);
+    cur = t; wk.classList.toggle('one', !!t);
+    tabs.forEach((b, i) => {
+      const p = pane(b), on = !t || b === t;
+      b.setAttribute('aria-pressed', b === t); b.setAttribute('aria-expanded', b === t); p.hidden = !on;
+      if (on && keep && (b === t || !was[i]) && keep.compareDocumentPosition(p) & Node.DOCUMENT_POSITION_FOLLOWING) { // no keep: no unfold, so an anchor jump lands true
+        p.classList.remove('in'); void p.offsetWidth; p.classList.add('in');
+      }
+    });
+    const fix = () => { if (keep) scrollBy(0, keep.getBoundingClientRect().top - y); };
+    // picked while stuck: its panel starts right under the row
+    if (t && wk.classList.contains('stuck')) scrollBy(0, pane(t).getBoundingClientRect().top - parseFloat(getComputedStyle(row).top) - row.offsetHeight);
+    fix(); mark(); requestAnimationFrame(() => { fix(); de.style.scrollBehavior = ''; navNow(); mark(); }); // again next frame: a stopped smooth scroll still lands one last step
+    say.textContent = t ? 'Showing ' + t.querySelector('.lab').textContent + ' only' : 'Showing all three';
+  }
+  const top = document.querySelector('.top'), after = document.querySelectorAll('#work ~ *, #work ~ * *');
+  // on exit the open panel holds its place: the panel itself if its top is on screen below the site header, else the first
+  // part of it whose top is, else what follows the section, else the panel off screen below the titles, so the titles stay too
+  function back(still) {
+    const p = pane(cur), y0 = Math.max(top.getBoundingClientRect().bottom, row.getBoundingClientRect().bottom);
+    const ok = (el) => { const t = el.getBoundingClientRect().top; return t >= y0 && t < innerHeight && el.checkVisibility({ opacityProperty: true, visibilityProperty: true }); }; // only what is drawn
+    set(null, still ? null : [p, ...p.querySelectorAll('*'), ...after].find(ok) || p);
+  }
+  tabs.forEach((t) => {
+    t.addEventListener('click', (e) => { if (e.detail) t.classList.add('still'); t === cur ? out() : set(t, t); });
+    t.addEventListener('pointerleave', () => t.classList.remove('still'));
+  });
+  wk.addEventListener('animationend', (e) => { e.target.classList.remove('in'); navNow(); mark(); });
+  mark();
+  function out() { const p = pane(cur); back(); p.querySelector('.pt').focus({ preventScroll: true }); } // the minus or Escape: focus on the kept panel's heading, where the reader is
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && cur && e.target.closest('#work')) out(); });
+  document.addEventListener('click', (e) => { if (cur && !e.target.closest('.tabs') && !pane(cur).contains(e.target)) back(!!e.target.closest('a[href^="#"]')); }); // an anchor jump wins
+})();
+
+// the map draws once, the first time it is half in view; its draw pauses off screen
+(() => {
+  const map = document.querySelector('.world .stack');
+  if (!('IntersectionObserver' in window)) { CohortMap.replay(); return; }
+  let drawn = false;
+  const io = new IntersectionObserver((es) => es.forEach((e) => {
+    CohortMap.view(e.isIntersecting);
+    if (e.isIntersecting && !drawn) { drawn = true; CohortMap.replay(); }
+  }), { threshold: 0.5 });
+  io.observe(map);
+})();
+</script>
+</body>
+</html>
